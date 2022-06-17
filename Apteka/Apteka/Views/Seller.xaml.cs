@@ -12,20 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Apteka
+namespace Apteka.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy StoreManager.xaml
+    /// Logika interakcji dla klasy Seller.xaml
     /// </summary>
-    public partial class StoreManager : Window
+    public partial class Seller 
     {
-        public StoreManager()
+        public Seller()
         {
             InitializeComponent();
-        }
-
-        private void ListBoxStoreManager_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
     }

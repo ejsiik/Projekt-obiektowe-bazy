@@ -55,16 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RegionalManager.xaml.cs">
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\RegionalManagerViewModel.cs" />
+    <Compile Include="ViewModels\UpdateViewCommand.cs" />
+    <Compile Include="ViewModels\SellerViewModel.cs" />
+    <Compile Include="ViewModels\StoreManagerViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\RegionalManager.xaml.cs">
       <DependentUpon>RegionalManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Seller.xaml.cs">
+    <Compile Include="Views\Seller.xaml.cs">
       <DependentUpon>Seller.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StoreManager.xaml.cs">
+    <Compile Include="Views\StoreManager.xaml.cs">
       <DependentUpon>StoreManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.xaml.cs">
+    <Compile Include="Views\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -79,19 +86,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegionalManager.xaml">
+    <Page Include="Views\RegionalManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Seller.xaml">
+    <Page Include="Views\Seller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StoreManager.xaml">
+    <Page Include="Views\StoreManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User.xaml">
+    <Page Include="Views\User.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,5 +129,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

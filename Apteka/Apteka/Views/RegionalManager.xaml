@@ -1,11 +1,11 @@
-﻿<Window x:Class="Apteka.StoreManager"
+﻿<Window x:Class="Apteka.Views.RegionalManager"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Apteka"
+        xmlns:local="clr-namespace:Apteka.Views"
         mc:Ignorable="d"
-        Title="StoreManager" Height="450" Width="800">
+        Title="RegionalManager" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -17,11 +17,10 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="Podgląd zamówień" HorizontalAlignment="Left" Margin="20,70,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="Stan magazynu" HorizontalAlignment="Left" Margin="20,108,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="Dodaj pracownika" HorizontalAlignment="Left" Margin="20,147,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Podgląd sklepów" HorizontalAlignment="Center" Margin="0,55,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Dodaj pracownika" HorizontalAlignment="Center" Margin="0,108,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Button Grid.Column="2" Content="Wyloguj" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="93,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nie wiem tutaj może imię i nazwisko zalogowanego czy coś"/></TextBlock>
-        <ListBox x:Name="ListBoxStoreManager" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBoxStoreManager_SelectionChanged" Grid.ColumnSpan="3" Margin="133,0,133,0"/>
+        
     </Grid>
 </Window>

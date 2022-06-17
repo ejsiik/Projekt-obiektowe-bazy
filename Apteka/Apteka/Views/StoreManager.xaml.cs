@@ -12,21 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Apteka
+namespace Apteka.Views
 {
-    /// <summary>
-    /// Logika interakcji dla klasy RegionalManager.xaml
-    /// </summary>
-    public partial class RegionalManager : Window
+
+    public partial class StoreManager
     {
-        public RegionalManager()
+        public StoreManager()
         {
             InitializeComponent();
+            
         }
 
-        private void ListRegionalManager_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

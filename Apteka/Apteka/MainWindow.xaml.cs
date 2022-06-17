@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apteka.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,9 @@ namespace Apteka
         public MainWindow()
         {
             InitializeComponent();
-            //koment
+            DataContext = new MainWindowViewModel();
         }
-        private void confirmClick(object sender, RoutedEventArgs e)
+       /* private void confirmClick(object sender, RoutedEventArgs e)
         {
             if (Empleyee.IsChecked == false && Client.IsChecked == false)
             {
@@ -39,9 +40,9 @@ namespace Apteka
             {
 
             }
-        }
+        }*/
 
-        private void Login_TextChanged(object sender, TextChangedEventArgs e)
+       /* private void Login_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
@@ -49,6 +50,6 @@ namespace Apteka
         private void Password_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
+        }*/
     }
 }

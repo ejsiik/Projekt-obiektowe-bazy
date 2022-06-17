@@ -2,8 +2,21 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Apteka"
+             xmlns:views ="clr-namespace:Apteka.Views"
+             xmlns:viewmodels ="clr-namespace:Apteka.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewmodels:RegionalManagerViewModel}">
+            <views:RegionalManager/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:SellerViewModel}">
+            <views:Seller/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:StoreManagerViewModel}">
+            <views:StoreManager/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:UserViewModel}">
+            <views:User/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

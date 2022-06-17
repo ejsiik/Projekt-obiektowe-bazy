@@ -12,18 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Apteka
+namespace Apteka.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy User.xaml
     /// </summary>
-    public partial class User : Window
+    public partial class User 
     {
         public User()
         {
             InitializeComponent();
         }
-
         private void SendClick(object sender, RoutedEventArgs e)
         {
             //logika dla listboxa - pokazanie artykułów z koszyka
