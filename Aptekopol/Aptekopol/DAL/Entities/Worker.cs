@@ -71,7 +71,7 @@ namespace Aptekopol.DAL.Entities
         // Metoda generująca string dla INSERT TO
         public string ToInsert()
         {
-            return $"(`{ID}`, `{Firstname}`, `{Surname}`, `{City}`, `{Address}`, `{Phone}`, `{Email}`, `{PESEL}`)"; 
+            return $"('{Firstname}', '{Surname}', '{City}', '{Address}', '{Phone}', '{Email}', '{PESEL}')"; 
         }
 
         // Przeciążenie metody Equals, do sprawdzania czy dana osoba jest już na liscie

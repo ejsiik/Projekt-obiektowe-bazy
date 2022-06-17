@@ -27,7 +27,42 @@ namespace Aptekopol.Model
         #endregion
 
         #region Methods
+        public bool CheckIfWorkerExist(Worker worker) => WorkersCollection.Contains(worker);
 
+        public bool AddWorker(Worker worker)
+        {
+            if (!CheckIfWorkerExist(worker))
+            {
+                if (Workers.AddWorker(worker))
+                {
+                    WorkersCollection.Add(worker);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool EditWorker(Worker worker, int id)
+        {
+            if (Workers.EditWorker(worker, id))
+            {
+                worker.ID = (sbyte?)(id + 1);
+                WorkersCollection[id] = new Worker(worker);
+                return true;
+            }
+            return false;
+        }
+
+        public bool DelWorker(Worker worker)
+        {
+            if (Workers.DelWorker(worker))
+            {
+                WorkersCollection.Remove(worker);
+                return true;
+            }
+
+            return false;
+        }
         #endregion
 
     }

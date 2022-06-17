@@ -12,7 +12,7 @@ namespace Aptekopol.DAL.Repo
     {
         #region Queries
         private const string GET_ALL_WORKERS = "SELECT * FROM `workers`";
-        private const string INSERT_INTO_WORKERS = "INSERT INTO `workers`(`ID`, `Firstname`, `Surname`, `City`, `Address`, `Phone`, `Email`, `PESEL`) VALUES ";
+        private const string INSERT_INTO_WORKERS = "INSERT INTO `workers`(`Firstname`, `Surname`, `City`, `Address`, `Phone`, `Email`, `PESEL`) VALUES ";
         #endregion
 
         #region CRUD
@@ -55,14 +55,14 @@ namespace Aptekopol.DAL.Repo
         }
 
         // Edycja istniejącego pracownika
-        public static bool EditWorker(Worker worker, sbyte workerID)
+        public static bool EditWorker(Worker worker, int workerID)
         {
             bool status = false;
 
             using (var connection = DBConnection.Instance.Connection)
             {
+                workerID++;
                 string UPDATE_WORKER = $"UPDATE `workers` SET " +
-                    $"`ID`='{worker.ID}'," +
                     $"`Firstname`='{worker.Firstname}'," +
                     $"`Surname`='{worker.Surname}'," +
                     $"`City`='{worker.City}'," +
@@ -70,7 +70,7 @@ namespace Aptekopol.DAL.Repo
                     $"`Phone`='{worker.Phone}'," +
                     $"`Email`='{worker.Email}'," +
                     $"`PESEL`='{worker.PESEL}'" +
-                    $" WHERE ID LIKE {worker.ID}";
+                    $" WHERE ID LIKE {workerID}";
 
                 MySqlCommand command = new MySqlCommand(UPDATE_WORKER, connection);
                 connection.Open();

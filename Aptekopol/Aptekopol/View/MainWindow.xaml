@@ -15,132 +15,93 @@
 
     <Grid DataContext="{StaticResource mainVM}">
         <TabControl>
-            <TabItem x:Name="WorkersList" Header="Lista pracowników">
+            <TabItem x:Name="WorkersList" Header="Zarządzanie pracownikami">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <!-- LISTA Pracowników  -->
-                    <ListView x:Name="workers" Grid.Column="0"  
-                              SelectedItem="{Binding WorkersTabVM.CurrentWorker}" 
+                    <DataGrid x:Name="workers"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
                               ItemsSource="{Binding WorkersTabVM.Workers}"
-                              SelectedIndex="{Binding WorkersTabVM.SelectedWorkerIndex, Mode=TwoWay}" 
-                              Grid.ColumnSpan="4">
+                              SelectedItem="{Binding WorkersTabVM.CurrentWorker}" 
+                              SelectedIndex="{Binding WorkersTabVM.SelectedWorkerIndex, Mode=TwoWay}" >
 
-                        <ListView.View>
-                            <GridView>
-                                <GridView.Columns>
-                                    
-                                    <!-- ID -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding ID}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="ID" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                            <DataGridTextColumn Header="Imię" Binding="{Binding Firstname}" />
+                            <DataGridTextColumn Header="Nazwisko" Binding="{Binding Surname}" />
+                        </DataGrid.Columns>
 
-                                    <!-- Imię -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Firstname}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="Imię" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction 
+                                    Command="{Binding WorkersTabVM.LoadForm}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
 
-                                    <!-- Nazwisko -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Surname}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="Nazwisko" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                    </DataGrid>
 
-                                    <!-- Miasto -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding City}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="Miasto" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                    <!-- EDYCJA/DODAWANIE Pracownika -->
+                    <StackPanel Grid.Column="2"
+                                Margin="5">
+                        
+                        <TextBlock Text="Imię:"/>
+                        <TextBox x:Name="firstname"  Text="{Binding WorkersTabVM.Firstname}"/>
+                        
+                        <TextBlock Text="Nazwisko:"/>
+                        <TextBox x:Name="surname" Text="{Binding WorkersTabVM.Surname}"/>
 
-                                    <!-- Adres -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Address}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="Adres" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                        <TextBlock Text="Miasto:"/>
+                        <TextBox x:Name="city" Text="{Binding WorkersTabVM.City}"/>
 
-                                    <!-- Numer telefonu -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Phone}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="Nr Telefonu" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                        <TextBlock Text="Adres:"/>
+                        <TextBox x:Name="address" Text="{Binding WorkersTabVM.Address}"/>
 
-                                    <!-- E-mail -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Email}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="E-mail" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
+                        <TextBlock Text="Numer telefonu:"/>
+                        <TextBox x:Name="phone" Text="{Binding WorkersTabVM.Phone}"/>
 
-                                    <!-- PESEL -->
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding PESEL}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                        <GridViewColumn.Header>
-                                            <TextBlock Text="PESEL" />
-                                        </GridViewColumn.Header>
-                                    </GridViewColumn>
-                                </GridView.Columns>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    
+                        <TextBlock Text="E-mail:"/>
+                        <TextBox x:Name="email" Text="{Binding WorkersTabVM.Email}"/>
+
+                        <TextBlock Text="PESEL:"/>
+                        <TextBox x:Name="pesel" Text="{Binding WorkersTabVM.PESEL}"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="button_Add" Grid.Column="0" Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding WorkersTabVM.Add}"
+                                    IsEnabled="{Binding WorkersTabVM.AddStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Edit" Grid.Column="1" Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding WorkersTabVM.Edit}"
+                                    IsEnabled="{Binding WorkersTabVM.EditStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Del" Grid.Column="3" Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding WorkersTabVM.Del}"
+                                    IsEnabled="{Binding WorkersTabVM.DelStatus, Mode=OneWay}"
+                             />
+                        </Grid>
+                    </StackPanel>
+
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="dodajOsobe" Header="Dodaj osobę">
+            <TabItem x:Name="ContractsList" Header="Zarządzanie umowami" IsEnabled="False">
                 <Grid>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="dodajZnajomego" Header="Dodaj telefon">
-                <Grid>
-
                 </Grid>
             </TabItem>
         </TabControl>
