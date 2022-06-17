@@ -14,3 +14,11 @@ D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.csproj.Gene
 D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.csproj.CoreCompileInputs.cache
 D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.exe
 D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.pdb
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\User.g.cs
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\User.baml
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\RegionalManager.g.cs
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Seller.g.cs
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\StoreManager.g.cs
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\RegionalManager.baml
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Seller.baml
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\StoreManager.baml

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Apteka.User"
+﻿<Window x:Class="Apteka.RegionalManager"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Apteka"
         mc:Ignorable="d"
-        Title="User" Height="450" Width="800">
+        Title="RegionalManager" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -16,11 +16,11 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Złóż zamówienie" HorizontalAlignment="Center" Margin="0,31,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="Podgląd zamówień" HorizontalAlignment="Left" Margin="20,70,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+
+        <Button Content="Podgląd sklepów" HorizontalAlignment="Center" Margin="0,55,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Dodaj pracownika" HorizontalAlignment="Center" Margin="0,108,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Button Grid.Column="2" Content="Wyloguj" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="93,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nie wiem tutaj może imię i nazwisko zalogowanego czy coś"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="93,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nie wiem tutaj trzeba 2 widoki listboxa dla podglądu i textboxy albo coś z comboboxem dla złożenia zamówienia.
-                                                                                                                                               Dodatkowo trzebaby jakiś przycisk do potwierdzenia zamówienia i nie wiem czy robimy jakiś koszyk bo to chyba jakaś lista rozwijana byłaby najlepsza."/></TextBlock>
+        <ListBox x:Name="ListRegionalManager" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListRegionalManager_SelectionChanged" Grid.ColumnSpan="3" Margin="133,0,133,0"/>
     </Grid>
 </Window>
