@@ -120,8 +120,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DAL\DBConnection.cs" />
+    <Compile Include="DAL\Entities\Product.cs" />
     <Compile Include="DAL\Entities\Shop.cs" />
     <Compile Include="DAL\Entities\Worker.cs" />
+    <Compile Include="DAL\Repo\Products.cs" />
     <Compile Include="DAL\Repo\Shops.cs" />
     <Compile Include="DAL\Repo\Workers.cs" />
     <Compile Include="Model\Model.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="ViewModel\BaseClasses\ViewModelBase.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ProductTabModel.cs" />
     <Compile Include="ViewModel\ShopsTabModel.cs" />
     <Compile Include="ViewModel\WorkersTabModel.cs" />
     <Compile Include="View\LoginWindow.xaml.cs">
