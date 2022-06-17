@@ -23,5 +23,20 @@ namespace Apteka
         {
             InitializeComponent();
         }
+
+        private void SendClick(object sender, RoutedEventArgs e)
+        {
+            //logika dla listboxa - pokazanie artykułów z koszyka
+        }
+
+        private void ViewClick(object sender, RoutedEventArgs e)
+        {
+            //logika dla listboxa2 - pokazanie zamówień złożonych przez klienta
+        }
+
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+            //dodaj do koszyka
+        }
     }
 }

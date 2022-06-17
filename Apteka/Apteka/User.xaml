@@ -16,11 +16,16 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Złóż zamówienie" HorizontalAlignment="Center" Margin="0,31,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Content="Podgląd zamówień" HorizontalAlignment="Left" Margin="20,70,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="SendButton" Content="Złóż zamówienie" HorizontalAlignment="Center" Margin="0,31,0,0" Grid.Row="1" VerticalAlignment="Top" Click="SendClick"/>
+        <Button x:Name="ViewButton" Content="Podgląd zamówień" HorizontalAlignment="Left" Margin="20,70,0,0" Grid.Row="1" VerticalAlignment="Top" Click="ViewClick"/>
         <Button Grid.Column="2" Content="Wyloguj" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="93,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nie wiem tutaj może imię i nazwisko zalogowanego czy coś"/></TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="93,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nie wiem tutaj trzeba 2 widoki listboxa dla podglądu i textboxy albo coś z comboboxem dla złożenia zamówienia.
-                                                                                                                                               Dodatkowo trzebaby jakiś przycisk do potwierdzenia zamówienia i nie wiem czy robimy jakiś koszyk bo to chyba jakaś lista rozwijana byłaby najlepsza."/></TextBlock>
+        <ListBox x:Name="Send" Grid.Column="1" Grid.Row="1"/>
+        <ListBox x:Name="View" Grid.Column="1" Grid.Row="1" IsEnabled="False"/>
+        <ListBox Grid.Column="2">
+            <ListBoxItem>"Koszyk"</ListBoxItem>
+        </ListBox>
+        <Button x:Name="Add" Grid.Column="2" Content="Dodaj artykuł" HorizontalAlignment="Center" Margin="0,16,0,0" Grid.Row="1" VerticalAlignment="Top" Click="AddClick"/>
+
     </Grid>
 </Window>

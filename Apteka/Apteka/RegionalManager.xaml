@@ -21,6 +21,7 @@
         <Button Content="Dodaj pracownika" HorizontalAlignment="Center" Margin="0,108,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Button Grid.Column="2" Content="Wyloguj" HorizontalAlignment="Center" Margin="0,274,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="93,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Nie wiem tutaj może imię i nazwisko zalogowanego czy coś"/></TextBlock>
-        <ListBox x:Name="ListRegionalManager" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListRegionalManager_SelectionChanged" Grid.ColumnSpan="3" Margin="133,0,133,0"/>
+        <ListBox x:Name="Shops" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListRegionalManager_SelectionChanged" Grid.ColumnSpan="3" Margin="133,0,133,0"/>
+        <ListBox x:Name="Workers" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListRegionalManager_SelectionChanged" Grid.ColumnSpan="3" Margin="133,0,133,0"/>
     </Grid>
 </Window>
