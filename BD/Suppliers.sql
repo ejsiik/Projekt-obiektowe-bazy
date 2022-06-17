@@ -1,0 +1,20 @@
+create table Suppliers (
+	ID INT,
+	Name VARCHAR(50),
+	City VARCHAR(50),
+	Address VARCHAR(50),
+	Phone VARCHAR(50),
+	Email VARCHAR(50),
+	NIP VARCHAR(50),
+	Remarks TEXT
+);
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (1, 'Physicians Total Care, Inc.', 'Yasugichō', '35 Anzinger Drive', '068 671 874', 'sbramsen0@purevolume.com', '492-747-44-01', 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (2, 'Patriot Pharmaceuticals, LLC', 'Shuibian', '6326 Hoepker Hill', '817 055 568', 'bhouseley1@nytimes.com', '024-797-84-40', 'Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (3, 'Melaleuca, Inc.', 'Quỳnh Côi', '30485 Memorial Park', '363 423 354', 'lwyeld2@nhs.uk', '970-724-87-85', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (4, 'Rejoice International', 'Áno Kastrítsion', '73 Sunfield Road', '103 832 642', 'pputtan3@mediafire.com', '912-224-10-89', 'In congue. Etiam justo. Etiam pretium iaculis justo.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (5, 'Glenmark Generics Inc., USA', 'Mospyne', '37634 Havey Point', '791 586 471', 'rbasnett4@jalbum.net', '266-004-66-64', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (6, 'HOMEOLAB USA INC', 'Pak Chom', '6455 Hintze Hill', '813 211 012', 'vmcgrayle5@walmart.com', '681-464-96-05', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (7, 'Reckitt Benckiser, Inc.', 'Vetrino', '266 Nobel Plaza', '383 458 808', 'cdulson6@abc.net.au', '567-463-65-19', 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (8, 'State of Florida DOH Central Pharmacy', 'Cirumput', '9259 Sunnyside Street', '670 217 845', 'rmcgarel7@theguardian.com', '573-294-22-63', 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (9, 'Publix Super Markets Inc', 'Hedong', '43 Gale Street', '200 321 985', 'bfer8@goo.ne.jp', '832-825-47-43', 'Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
+insert into Suppliers (ID, Name, City, Address, Phone, Email, NIP, Remarks) values (10, 'BioActive Nutritional, Inc.', 'Saguiaran', '293 Esker Center', '514 184 780', 'dmathivet9@51.la', '477-223-07-34', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.');
