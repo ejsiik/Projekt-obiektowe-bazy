@@ -23,6 +23,7 @@ namespace Apteka
         public MainWindow()
         {
             InitializeComponent();
+            //koment
         }
         private void confirmClick(object sender, RoutedEventArgs e)
         {
