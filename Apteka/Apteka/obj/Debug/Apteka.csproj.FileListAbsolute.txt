@@ -1,0 +1,16 @@
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\bin\Debug\Apteka.exe.config
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\bin\Debug\Apteka.exe
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\bin\Debug\Apteka.pdb
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.csproj.AssemblyReference.cache
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.csproj.SuggestedBindingRedirects.cache
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\MainWindow.g.cs
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\App.g.cs
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka_MarkupCompile.cache
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka_MarkupCompile.lref
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\MainWindow.baml
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.g.resources
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.Properties.Resources.resources
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.csproj.GenerateResource.cache
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.csproj.CoreCompileInputs.cache
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.exe
+D:\studia\SEM4\Projekt-obiektowe-bazy\Apteka\Apteka\obj\Debug\Apteka.pdb

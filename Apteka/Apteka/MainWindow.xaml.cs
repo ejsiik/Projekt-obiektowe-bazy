@@ -24,5 +24,30 @@ namespace Apteka
         {
             InitializeComponent();
         }
+        private void confirmClick(object sender, RoutedEventArgs e)
+        {
+            if (Empleyee.IsChecked == false && Client.IsChecked == false)
+            {
+                System.Windows.MessageBox.Show("Zaznacz opcje");
+            }
+            else if (Empleyee.IsChecked == true)
+            {
+
+            }
+            else if (Client.IsChecked == true)
+            {
+
+            }
+        }
+
+        private void Login_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Password_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
