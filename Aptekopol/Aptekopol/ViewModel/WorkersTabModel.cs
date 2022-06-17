@@ -29,7 +29,7 @@ namespace Aptekopol.ViewModel
         private bool addStatus = true, editStatus = false, delStatus = false;
         #endregion
 
-        #region Constructors
+        #region Constructor
         public WorkersTabModel(Model model) 
         {
             this.model = model;
@@ -300,7 +300,7 @@ namespace Aptekopol.ViewModel
                     edit = new RelayCommand(
                         arg =>
                         {
-                            if (model.EditWorker(new Worker(Firstname, Surname, City, Address, Phone, Email, PESEL), ID))
+                            if (model.EditWorker(new Worker(Firstname, Surname, City, Address, Phone, Email, PESEL), (int)CurrentWorker.ID))
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie edytowano pracownika w Bazie Danych!");

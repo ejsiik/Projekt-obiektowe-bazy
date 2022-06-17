@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Aptekopol.ViewModel
 {
     using Aptekopol.Model;
 
-    internal class MainViewModel
+    internal class LoginViewModel
     {
         // Instancja modelu
         private Model model = new Model();
-        public WorkersTabModel WorkersTabVM { get; set; }
-        public ShopsTabModel ShopsTabVM { get; set; }
 
-        public MainViewModel()
+        public LoginViewModel()
         {
-            WorkersTabVM = new WorkersTabModel(model);
-            ShopsTabVM = new ShopsTabModel(model);
+
         }
+
+
     }
 }

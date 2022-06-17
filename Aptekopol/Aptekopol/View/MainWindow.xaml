@@ -51,10 +51,10 @@
                     <!-- EDYCJA/DODAWANIE Pracownika -->
                     <StackPanel Grid.Column="2"
                                 Margin="5">
-                        
+
                         <TextBlock Text="Imię:"/>
                         <TextBox x:Name="firstname"  Text="{Binding WorkersTabVM.Firstname}"/>
-                        
+
                         <TextBlock Text="Nazwisko:"/>
                         <TextBox x:Name="surname" Text="{Binding WorkersTabVM.Surname}"/>
 
@@ -96,12 +96,80 @@
                              />
                         </Grid>
                     </StackPanel>
-
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="ContractsList" Header="Zarządzanie umowami" IsEnabled="False">
+            <TabItem x:Name="ContractsList" Header="Zarządzanie sklepami">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- LISTA Sklepów  -->
+                    <DataGrid x:Name="shops"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ShopsTabVM.Shops}"
+                              SelectedItem="{Binding ShopsTabVM.CurrentShop}" 
+                              SelectedIndex="{Binding ShopsTabVM.SelectedShopIndex, Mode=TwoWay}" >
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                            <DataGridTextColumn Header="Miasto" Binding="{Binding City}" />
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction 
+                                    Command="{Binding ShopsTabVM.LoadForm}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </DataGrid>
+
+                    <!-- EDYCJA/DODAWANIE Sklepu -->
+                    <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                        <TextBlock Text="Miasto:"/>
+                        <TextBox x:Name="city_shop" Text="{Binding ShopsTabVM.City_shop}"/>
+
+                        <TextBlock Text="Adres:"/>
+                        <TextBox x:Name="address_shop" Text="{Binding ShopsTabVM.Address_shop}"/>
+
+                        <TextBlock Text="Numer telefonu:"/>
+                        <TextBox x:Name="phone_shop" Text="{Binding ShopsTabVM.Phone_shop}"/>
+
+                        <TextBlock Text="E-mail:"/>
+                        <TextBox x:Name="email_shop" Text="{Binding ShopsTabVM.Email_shop}"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="button_Add_shop" Grid.Column="0" Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding ShopsTabVM.Add}"
+                                    IsEnabled="{Binding ShopsTabVM.AddStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Edit_shop" Grid.Column="1" Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding ShopsTabVM.Edit}"
+                                    IsEnabled="{Binding ShopsTabVM.EditStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Del_shop" Grid.Column="3" Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding ShopsTabVM.Del}"
+                                    IsEnabled="{Binding ShopsTabVM.DelStatus, Mode=OneWay}"
+                             />
+                        </Grid>
+                    </StackPanel>
                 </Grid>
             </TabItem>
         </TabControl>

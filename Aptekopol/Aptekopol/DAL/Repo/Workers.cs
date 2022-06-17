@@ -61,7 +61,6 @@ namespace Aptekopol.DAL.Repo
 
             using (var connection = DBConnection.Instance.Connection)
             {
-                workerID++;
                 string UPDATE_WORKER = $"UPDATE `workers` SET " +
                     $"`Firstname`='{worker.Firstname}'," +
                     $"`Surname`='{worker.Surname}'," +

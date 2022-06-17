@@ -1,0 +1,29 @@
+﻿<Window x:Class="Aptekopol.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aptekopol.View"
+        xmlns:vm="clr-namespace:Aptekopol.ViewModel"
+        mc:Ignorable="d"
+        Title="Logowanie" Height="450" Width="450">
+
+    <Window.Resources>
+        <vm:LoginViewModel x:Key="loginVM"/>
+    </Window.Resources>
+
+    <Viewbox VerticalAlignment="Top" DataContext="{StaticResource loginVM}">
+        <Grid>
+
+            <RadioButton x:Name="Empleyee" Content="Pracownik" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" IsChecked="True" />
+            <RadioButton x:Name="Client" Content="Klient" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" />
+
+            <TextBox x:Name="Login" HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
+
+            <TextBox x:Name="Password" HorizontalAlignment="Center" Margin="0,133,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" />
+            
+            <Button x:Name="Confirm" Content="Potwierdź" HorizontalAlignment="Center" Margin="0,175,0,0" />
+
+        </Grid>
+    </Viewbox>
+</Window>
