@@ -35,6 +35,24 @@ namespace Aptekopol.DAL.Repo
             return workers;
         }
 
+        public static Worker GetWorkerByID(int id)
+        {
+            Worker worker = null;
+            using (var connection = DBConnection.Instance.Connection)
+            {
+                string UPDATE = $" WHERE ID LIKE {id}";
+
+                MySqlCommand command = new MySqlCommand($"{GET_ALL_WORKERS} {UPDATE}", connection);
+                connection.Open();
+
+                var reader = command.ExecuteReader();
+                worker = new Worker(reader);
+
+                connection.Close();
+            }
+            return worker;
+        }
+
         // Dodanie nowego pracownika do BD
         public static bool AddWorker(Worker worker)
         {

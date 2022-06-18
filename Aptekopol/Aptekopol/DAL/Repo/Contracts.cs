@@ -91,7 +91,7 @@ namespace Aptekopol.DAL.Repo
             return status;
         }
 
-        // Edycja istniejącego sklepu
+        // Edycja istniejącego
         public static bool EditShop(Shop shop, int shopID)
         {
             bool status = false;
@@ -117,7 +117,7 @@ namespace Aptekopol.DAL.Repo
             return status;
         }
 
-        // Usunięcie sklepu z BD
+        // Usunięcie z BD
         public static bool DelShop(Shop shop)
         {
             bool status = false;
