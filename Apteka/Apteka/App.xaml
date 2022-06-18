@@ -7,7 +7,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <DataTemplate DataType="{x:Type viewmodels:RegionalManagerViewModel}">
-            <views:RegionalManager/>
+            <views:UserControl1/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:SellerViewModel}">
             <views:Seller/>
