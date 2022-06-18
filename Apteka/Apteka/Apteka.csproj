@@ -55,8 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="Views\MainWindowControl.xaml.cs">
+      <DependentUpon>MainWindowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -68,11 +68,20 @@
     <Compile Include="Views\RegionalManager.xaml.cs">
       <DependentUpon>RegionalManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegionalManagerControl.xaml.cs">
+      <DependentUpon>RegionalManagerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Seller.xaml.cs">
       <DependentUpon>Seller.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SellerControl.xaml.cs">
+      <DependentUpon>SellerControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StoreManager.xaml.cs">
       <DependentUpon>StoreManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoreManagerControl.xaml.cs">
+      <DependentUpon>StoreManagerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\User.xaml.cs">
       <DependentUpon>User.xaml</DependentUpon>
@@ -92,7 +101,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserControl1.xaml">
+    <Page Include="Views\MainWindowControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,11 +109,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RegionalManagerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Seller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SellerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StoreManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StoreManagerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

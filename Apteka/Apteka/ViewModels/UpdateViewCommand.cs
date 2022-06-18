@@ -40,6 +40,10 @@ namespace Apteka.ViewModels
             {
                 viewModel.SelectedViewModel = new RegionalManagerViewModel();
             }
+            else if (parameter.ToString() == "Menu")
+            {
+                viewModel.SelectedViewModel = new MainWindowViewModel();
+            }
         }
   
      }

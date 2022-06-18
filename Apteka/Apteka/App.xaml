@@ -7,16 +7,19 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <DataTemplate DataType="{x:Type viewmodels:RegionalManagerViewModel}">
-            <views:UserControl1/>
+            <views:RegionalManagerControl/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:SellerViewModel}">
-            <views:Seller/>
+            <views:SellerControl/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:StoreManagerViewModel}">
-            <views:StoreManager/>
+            <views:StoreManagerControl/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodels:UserViewModel}">
-            <views:User/>
+            <views:UserControl1/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:MainWindowViewModel}">
+            <views:MainWindowControl/>
         </DataTemplate>
     </Application.Resources>
 </Application>

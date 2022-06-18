@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Apteka
+namespace Apteka.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserControl1.xaml
+    /// Logika interakcji dla klasy MainWindowControl.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class MainWindowControl : UserControl
     {
-        public UserControl1()
+        public MainWindowControl()
         {
             InitializeComponent();
         }
