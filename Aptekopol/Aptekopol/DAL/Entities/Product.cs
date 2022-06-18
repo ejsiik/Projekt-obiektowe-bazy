@@ -16,7 +16,7 @@ namespace Aptekopol.DAL.Entities
 
         public string Description { get; set; }
 
-        public float Price { get; set; }
+        public double? Price { get; set; }
 
         public string Remarks { get; set; }
 
@@ -30,13 +30,13 @@ namespace Aptekopol.DAL.Entities
             ID = sbyte.Parse(reader["ID"].ToString());
             Name = reader["Name"].ToString();
             Description = reader["Description"].ToString();
-            Price = float.Parse(reader["Price"].ToString());
+            Price = double.Parse(reader["Price"].ToString());
             Remarks = reader["Remarks"].ToString();
             Category = reader["Category"].ToString();
         }
 
         // Stworzenie obiektu na podstawie podanych danych z ID NULL
-        public Product(string name, string description, float price, string remarks, string category)
+        public Product(string name, string description, double? price, string remarks, string category)
         {
             ID = null;
             Name = name;

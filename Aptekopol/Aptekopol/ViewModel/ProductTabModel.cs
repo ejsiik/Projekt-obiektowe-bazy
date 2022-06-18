@@ -23,7 +23,7 @@ namespace Aptekopol.ViewModel
 
         // Obsługa szczegółów produktów
         private int id;
-        private float price;
+        private double? price;
         private string name, description, remarks, category;
 
         // Obsługa przycisków szczegółów sklepu
@@ -96,7 +96,7 @@ namespace Aptekopol.ViewModel
         {
             Name_product = "";
             Description_product = "";
-            Price_product = 0;
+            Price_product = null;
             Remarks_product = "";
             Category_product = "";
 
@@ -138,7 +138,7 @@ namespace Aptekopol.ViewModel
             }
         }
 
-        public float Price_product
+        public double? Price_product
         {
             get { return price; }
             set
@@ -170,7 +170,7 @@ namespace Aptekopol.ViewModel
         #endregion
 
         #region Commands
-        // Załadowywanie pracowników
+        // Załadowywanie
         private ICommand loadAllProducts = null;
         public ICommand LoadAllProducts
         {
@@ -190,11 +190,29 @@ namespace Aptekopol.ViewModel
             }
         }
 
+        // Załadowywanie
+        private ICommand clear = null;
+        public ICommand Clear
+        {
+            get
+            {
+                if (clear == null)
+                    clear = new RelayCommand(
+                        arg =>
+                        {
+                            ClearForm();
+                        },
+                        arg => true
+                        );
+
+                return clear;
+            }
+        }
+
         // Obsługa formularza
         private ICommand loadForm = null;
         public ICommand LoadForm
         {
-
             get
             {
                 if (loadForm == null)
@@ -217,7 +235,7 @@ namespace Aptekopol.ViewModel
                             {
                                 Name_product = "";
                                 Description_product = "";
-                                Price_product = 0;
+                                Price_product = null;
                                 Remarks_product = "";
                                 Category_product = "";
 
@@ -254,11 +272,11 @@ namespace Aptekopol.ViewModel
                             }
                         },
                         arg =>
-                            Name_product == "" &&
-                            Description_product == "" &&
-                            Price_product == 0 &&
-                            Remarks_product == "" &&
-                            Category_product == ""
+                            Name_product != "" &&
+                            Description_product != "" &&
+                            Price_product != null &&
+                            Remarks_product != "" &&
+                            Category_product != ""
                     );
 
                 return add;
@@ -283,11 +301,11 @@ namespace Aptekopol.ViewModel
                             }
                         },
                         arg =>
-                            Name_product == "" &&
-                            Description_product == "" &&
-                            Price_product == 0 &&
-                            Remarks_product == "" &&
-                            Category_product == ""
+                            Name_product != "" &&
+                            Description_product != "" &&
+                            Price_product != null &&
+                            Remarks_product != "" &&
+                            Category_product != ""
                    );
                 return edit;
             }
@@ -311,11 +329,11 @@ namespace Aptekopol.ViewModel
                             }
                         },
                         arg =>
-                            Name_product == "" &&
-                            Description_product == "" &&
-                            Price_product == 0 &&
-                            Remarks_product == "" &&
-                            Category_product == ""
+                            Name_product != "" &&
+                            Description_product != "" &&
+                            Price_product != null &&
+                            Remarks_product != "" &&
+                            Category_product != ""
                     );
 
                 return del;

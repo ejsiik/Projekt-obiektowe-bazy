@@ -99,7 +99,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="ContractsList" Header="Zarządzanie sklepami">
+            <TabItem x:Name="ShopsList" Header="Zarządzanie sklepami">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1.2*"/>
@@ -172,6 +172,93 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
+
+            <TabItem x:Name="ProductsList" Header="Zarządzanie produktami">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- LISTA Produktów  -->
+                    <DataGrid x:Name="products"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ProductsTabVM.Products}"
+                              SelectedItem="{Binding ProductsTabVM.CurrentProduct}" 
+                              SelectedIndex="{Binding ProductsTabVM.SelectedProductIndex, Mode=TwoWay}" >
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                            <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" />
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction 
+                                    Command="{Binding ProductsTabVM.LoadForm}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </DataGrid>
+
+                    <!-- EDYCJA/DODAWANIE Produktu -->
+                    <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                        <TextBlock Text="Nazwa:"/>
+                        <TextBox x:Name="name_product" Text="{Binding ProductsTabVM.Name_product}"/>
+
+                        <TextBlock Text="Opis:"/>
+                        <TextBox x:Name="description_product"
+                                   TextWrapping="Wrap"
+                                   AcceptsReturn="True"
+                                   VerticalScrollBarVisibility="Visible"
+                                   Text="{Binding ProductsTabVM.Description_product}"/>
+
+                        <TextBlock Text="Cena:"/>
+                        <TextBox x:Name="price_product" Text="{Binding ProductsTabVM.Price_product}"/>
+
+                        <TextBlock Text="Uwagi:"/>
+                        <TextBox x:Name="remarks_product" Text="{Binding ProductsTabVM.Remarks_product}"/>
+
+                        <TextBlock Text="Kategoria:"/>
+                        <TextBox x:Name="category_product" Text="{Binding ProductsTabVM.Category_product}"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="button_Add_product" Grid.Column="0" Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Add}"
+                                    IsEnabled="{Binding ProductsTabVM.AddStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Edit_product" Grid.Column="1" Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Edit}"
+                                    IsEnabled="{Binding ProductsTabVM.EditStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Del_product" Grid.Column="2" Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Del}"
+                                    IsEnabled="{Binding ProductsTabVM.DelStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Clear_product" Grid.Column="3" Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Clear}"
+                             />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

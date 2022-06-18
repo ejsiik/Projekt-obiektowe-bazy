@@ -14,11 +14,13 @@ namespace Aptekopol.ViewModel
         private Model model = new Model();
         public WorkersTabModel WorkersTabVM { get; set; }
         public ShopsTabModel ShopsTabVM { get; set; }
+        public ProductsTabModel ProductsTabVM { get; set; }
 
         public MainViewModel()
         {
             WorkersTabVM = new WorkersTabModel(model);
             ShopsTabVM = new ShopsTabModel(model);
+            ProductsTabVM = new ProductsTabModel(model);
         }
     }
 }
