@@ -258,7 +258,7 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-
+ 
             <TabItem x:Name="ProductsList" Header="Zarządzanie produktami">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -342,8 +342,8 @@
                              />
                         </Grid>
                     </StackPanel>
-                </Grid>
-            </TabItem>
+                </Grid> 
+            </TabItem> -->
 
         </TabControl>
     </Grid>

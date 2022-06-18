@@ -120,13 +120,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DAL\DBConnection.cs" />
+    <Compile Include="DAL\Entities\Client.cs" />
     <Compile Include="DAL\Entities\Contract.cs" />
+    <Compile Include="DAL\Entities\Delivery.cs" />
     <Compile Include="DAL\Entities\Product.cs" />
     <Compile Include="DAL\Entities\Shop.cs" />
+    <Compile Include="DAL\Entities\Supplier.cs" />
     <Compile Include="DAL\Entities\Worker.cs" />
+    <Compile Include="DAL\Repo\Clients.cs" />
+    <Compile Include="DAL\Repo\Deliveries.cs" />
     <Compile Include="DAL\Repo\Products.cs" />
     <Compile Include="DAL\Repo\Contracts.cs" />
     <Compile Include="DAL\Repo\Shops.cs" />
+    <Compile Include="DAL\Repo\Suppliers.cs" />
     <Compile Include="DAL\Repo\Workers.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="ViewModel\BaseClasses\RelayCommand.cs" />
