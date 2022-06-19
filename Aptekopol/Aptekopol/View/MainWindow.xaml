@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Aptekopol"
         xmlns:vm="clr-namespace:Aptekopol.ViewModel"
         mc:Ignorable="d"
-        Title="Zarządzanie" Height="800" Width="800">
+        Title="Zarządzanie" Height="800" Width="1400">
 
     <Window.Resources>
         <vm:MainViewModel x:Key="mainVM"/>
@@ -310,13 +310,15 @@
                         </Grid>
 
                         <!-- LISTA Dostawców  -->
+                        <TextBlock Text="Dostawcy:"
+                                   Margin="0,20,0,0"/>
                         <DataGrid
                               Grid.Column="0"  
                               IsReadOnly="True"
                               AutoGenerateColumns="False"
                               GridLinesVisibility="None"
                               AlternatingRowBackground="Lavender"
-                              ItemsSource="{Binding ProductsTabVM.ProductsSuppliers}">
+                              ItemsSource="{Binding ProductsTabVM.CurrentProductSuppliers}">
 
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID" Binding="{Binding DeliveryID}" />

@@ -20,6 +20,7 @@ namespace Aptekopol.ViewModel
         // Obsługa list
         private ObservableCollection<Product> products = null;
         private ObservableCollection<ProductSupplier> productsSuppliers = null;
+        private ObservableCollection<ProductSupplier> currentProductSuppliers = null;
         private int selectedProductIndex = -1;
 
         // Obsługa szczegółów produktów
@@ -45,14 +46,14 @@ namespace Aptekopol.ViewModel
 
         public ObservableCollection<ProductSupplier> CurrentProductSupplier { get; set; }
 
-        public ObservableCollection<ProductSupplier> ProductsSuppliers
+        public ObservableCollection<ProductSupplier> CurrentProductSuppliers
         {
-            get { return this.productsSuppliers; }
+            get { return currentProductSuppliers; }
             set
             {
-                this.productsSuppliers = value;
+                this.currentProductSuppliers = value;
 
-                onPropertyChanged(nameof(ProductsSuppliers));
+                onPropertyChanged(nameof(CurrentProductSuppliers));
             }
         }
 
@@ -242,7 +243,15 @@ namespace Aptekopol.ViewModel
                                 Remarks_product = CurrentProduct.Remarks;
                                 Category_product = CurrentProduct.Category;
 
+                                CurrentProductSuppliers = new ObservableCollection<ProductSupplier>();
 
+                                for (int i = 0; i < productsSuppliers.Count; i++)
+                                {
+                                    if (name == productsSuppliers[i].ProductName)
+                                    {
+                                        CurrentProductSuppliers.Add(productsSuppliers[i]);
+                                    }
+                                }
 
                                 AddStatus = false;
                                 EditStatus = true;
