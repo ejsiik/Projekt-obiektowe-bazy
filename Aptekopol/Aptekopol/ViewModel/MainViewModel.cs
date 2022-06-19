@@ -16,6 +16,7 @@ namespace Aptekopol.ViewModel
         public ShopsTabModel ShopsTabVM { get; set; }
         public ProductsTabModel ProductsTabVM { get; set; }
         public ClientsTabModel ClientsTabVM { get; set; } 
+        public SuppliersTabModel SuppliersTabVM { get; set; }
 
         public MainViewModel()
         {
@@ -23,6 +24,7 @@ namespace Aptekopol.ViewModel
             ShopsTabVM = new ShopsTabModel(model);
             ProductsTabVM = new ProductsTabModel(model);
             ClientsTabVM = new ClientsTabModel(model);
+            SuppliersTabVM = new SuppliersTabModel(model);   
         }
     }
 }
