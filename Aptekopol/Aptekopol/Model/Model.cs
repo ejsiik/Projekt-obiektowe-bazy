@@ -20,6 +20,7 @@ namespace Aptekopol.Model
         public ObservableCollection<Client> ClientsCollection { get; set; } = new ObservableCollection<Client>();
         public ObservableCollection<Supplier> SuppliersCollection { get; set; } = new ObservableCollection<Supplier>();
         public ObservableCollection<Delivery> DeliveryCollection { get; set; } = new ObservableCollection<Delivery>();
+        public ObservableCollection<Order> OrderCollection { get; set; } = new ObservableCollection<Order>();
         #endregion
 
         #region DB Views
@@ -37,6 +38,7 @@ namespace Aptekopol.Model
             var products = Products.GetAllProducts();
             var clients = Clients.GetAllClients();
             var suppliers = Suppliers.GetAllSuppliers();
+            var orders = Orders.GetAllOrders();
             //var delivery = Deliveries.GetAllDelivery();
 
             foreach (var w in workers)
@@ -53,6 +55,9 @@ namespace Aptekopol.Model
 
             foreach (var s in suppliers)
                 SuppliersCollection.Add(s);
+
+            foreach (var o in orders)
+                OrderCollection.Add(o);
 
             // Views
             var productsSuppliers = ProductsSuppliers.GetAllProductsSuppliers();
@@ -259,6 +264,45 @@ namespace Aptekopol.Model
 
             return false;
         }
+        #endregion
+
+        #region Order Methods
+        public bool CheckIfOrderExist(Order order) => OrderCollection.Contains(order);
+
+        public bool AddOrder(Order order)
+        {
+            if (!CheckIfOrderExist(order))
+            {
+                if (Order.AddOrder(order))
+                {
+                    OrderCollection.Add(order);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /*public bool EditOrder(Order order, int id)
+        {
+            if (Orders.EditOrder(order, id))
+            {
+                order.Order_ID = (sbyte?)id;
+                OrderCollection[id - 1] = new Order(order);
+                return true;
+            }
+            return false;
+        }
+
+        public bool DelOrder(Order order)
+        {
+            if (Orders.DelOrder(order))
+            {
+                OrderCollection.Remove(order);
+                return true;
+            }
+
+            return false;
+        }*/
         #endregion
     }
 }

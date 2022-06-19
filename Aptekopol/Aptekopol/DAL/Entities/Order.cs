@@ -91,6 +91,11 @@ namespace Aptekopol.DAL.Entities
         {
             return base.GetHashCode();
         }
+
+        internal static bool AddOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }
