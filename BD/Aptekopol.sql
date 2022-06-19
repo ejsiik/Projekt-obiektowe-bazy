@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Czas generowania: 16 Cze 2022, 16:52
--- Wersja serwera: 10.3.34-MariaDB-0ubuntu0.20.04.1
--- Wersja PHP: 7.4.3
+-- Host: 127.0.0.1
+-- Generation Time: Jun 19, 2022 at 02:20 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `Aptekopol`
+-- Database: `aptekopol`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Clients`
+-- Table structure for table `clients`
 --
 
-CREATE TABLE `Clients` (
+CREATE TABLE `clients` (
   `ID` int(11) NOT NULL,
   `Login` varchar(50) COLLATE utf32_polish_ci NOT NULL,
   `Firstname` varchar(50) COLLATE utf32_polish_ci NOT NULL,
@@ -45,10 +44,10 @@ CREATE TABLE `Clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Clients`
+-- Dumping data for table `clients`
 --
 
-INSERT INTO `Clients` (`ID`, `Login`, `Firstname`, `Surname`, `Is_company`, `Name`, `NIP`, `City`, `Address`, `Phone`, `Email`, `Password`, `Password_last_change`) VALUES
+INSERT INTO `clients` (`ID`, `Login`, `Firstname`, `Surname`, `Is_company`, `Name`, `NIP`, `City`, `Address`, `Phone`, `Email`, `Password`, `Password_last_change`) VALUES
 (1, 'bdolohunty0', 'Beau', 'Dolohunty', 0, NULL, NULL, 'Newark', '4 Lillian Circle', '272-268-978', NULL, 'kngcAF', '2022-03-15 17:05:35'),
 (2, 'abeades1', 'Anestassia', 'Beades', 1, 'Zoovu', '455-633-96-02', NULL, NULL, NULL, 'abeades1@stumbleupon.com', 'xRYt28xF', '2022-02-24 14:09:48'),
 (3, 'mmerriott2', 'Morissa', 'Merriott', 1, 'Youspan', '889-773-14-32', NULL, NULL, NULL, 'mmerriott2@hatena.ne.jp', '4IEokGRR', '2022-01-20 22:43:53'),
@@ -103,10 +102,10 @@ INSERT INTO `Clients` (`ID`, `Login`, `Firstname`, `Surname`, `Is_company`, `Nam
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Contracts`
+-- Table structure for table `contracts`
 --
 
-CREATE TABLE `Contracts` (
+CREATE TABLE `contracts` (
   `ID` int(11) NOT NULL,
   `Worker_ID` int(11) NOT NULL,
   `Shop_ID` int(11) NOT NULL,
@@ -118,10 +117,10 @@ CREATE TABLE `Contracts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Contracts`
+-- Dumping data for table `contracts`
 --
 
-INSERT INTO `Contracts` (`ID`, `Worker_ID`, `Shop_ID`, `Contract_number`, `Signing_date`, `Expiration_date`, `Salary`, `Job_title`) VALUES
+INSERT INTO `contracts` (`ID`, `Worker_ID`, `Shop_ID`, `Contract_number`, `Signing_date`, `Expiration_date`, `Salary`, `Job_title`) VALUES
 (1, 1, 1, '0593zt/39', '2020-02-10 09:33:58', '2022-07-10 00:44:02', 8704, 'Kierownik regionalny'),
 (2, 2, 6, '4985x2/32', '2022-05-08 08:40:37', '2022-07-07 03:40:16', 6740, 'Sprzedawca'),
 (3, 3, 2, '2780np/22', '2021-07-05 14:11:15', '2022-07-17 14:35:47', 9418, 'Kierownik regionalny'),
@@ -156,10 +155,10 @@ INSERT INTO `Contracts` (`ID`, `Worker_ID`, `Shop_ID`, `Contract_number`, `Signi
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Delivery`
+-- Table structure for table `delivery`
 --
 
-CREATE TABLE `Delivery` (
+CREATE TABLE `delivery` (
   `ID` int(11) NOT NULL,
   `Product_ID` int(11) NOT NULL,
   `Supplier_ID` int(11) NOT NULL,
@@ -168,10 +167,10 @@ CREATE TABLE `Delivery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Delivery`
+-- Dumping data for table `delivery`
 --
 
-INSERT INTO `Delivery` (`ID`, `Product_ID`, `Supplier_ID`, `Price`, `Amount`) VALUES
+INSERT INTO `delivery` (`ID`, `Product_ID`, `Supplier_ID`, `Price`, `Amount`) VALUES
 (1, 41, 3, '78.98', 23),
 (2, 18, 6, '105.09', 14),
 (3, 48, 10, '181.76', 5),
@@ -179,7 +178,7 @@ INSERT INTO `Delivery` (`ID`, `Product_ID`, `Supplier_ID`, `Price`, `Amount`) VA
 (5, 50, 6, '68.61', 11),
 (6, 37, 7, '76.38', 9),
 (7, 11, 5, '73.35', 37),
-(8, 4, 8, '176.02', 29),
+(8, 4, 2, '176.02', 29),
 (9, 43, 2, '60.69', 22),
 (10, 44, 8, '172.19', 23),
 (11, 32, 2, '126.20', 45),
@@ -276,10 +275,10 @@ INSERT INTO `Delivery` (`ID`, `Product_ID`, `Supplier_ID`, `Price`, `Amount`) VA
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Orders`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `Orders` (
+CREATE TABLE `orders` (
   `Order_ID` int(11) NOT NULL,
   `Client_ID` int(11) NOT NULL,
   `Shop_ID` int(11) NOT NULL,
@@ -290,10 +289,10 @@ CREATE TABLE `Orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Orders`
+-- Dumping data for table `orders`
 --
 
-INSERT INTO `Orders` (`Order_ID`, `Client_ID`, `Shop_ID`, `Worker_ID`, `Product_ID`, `Quantity`, `Order_date`) VALUES
+INSERT INTO `orders` (`Order_ID`, `Client_ID`, `Shop_ID`, `Worker_ID`, `Product_ID`, `Quantity`, `Order_date`) VALUES
 (1, 32, 5, 5, 14, 15, '2022-05-10 04:03:01'),
 (2, 2, 4, 30, 25, 3, '2021-12-03 07:07:42'),
 (3, 16, 10, 13, 42, 9, '2022-01-10 14:12:51'),
@@ -398,10 +397,10 @@ INSERT INTO `Orders` (`Order_ID`, `Client_ID`, `Shop_ID`, `Worker_ID`, `Product_
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Products`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `Products` (
+CREATE TABLE `products` (
   `ID` int(11) NOT NULL,
   `Name` varchar(50) COLLATE utf32_polish_ci NOT NULL,
   `Description` text COLLATE utf32_polish_ci NOT NULL,
@@ -411,22 +410,22 @@ CREATE TABLE `Products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Products`
+-- Dumping data for table `products`
 --
 
-INSERT INTO `Products` (`ID`, `Name`, `Description`, `Price`, `Remarks`, `Category`) VALUES
+INSERT INTO `products` (`ID`, `Name`, `Description`, `Price`, `Remarks`, `Category`) VALUES
 (1, 'Modafinil', 'External constriction of part of breast, left breast, subsequent encounter', '396.00', 'Hyperosmolality and/or hypernatremia', 'Upper arm reattachment'),
 (2, 'Oxcarbazepine', 'Displaced comminuted fracture of right patella, subsequent encounter for closed fracture with malunion', '80.23', 'Retracted nipple associated with childbirth, delivered, with or without mention of antepartum condition', 'Bone graft, patella'),
 (3, 'Risperidone', 'Laceration with foreign body of oral cavity', '52.32', 'Causalgia of lower limb', 'Electroretinogram [ERG]'),
 (4, 'ThatZit Acne Treatment', 'Fatigue fracture of vertebra, site unspecified, sequela of fracture', '308.28', 'Injury to kidney with open wound into cavity, laceration', 'Incision of peritoneum'),
 (5, 'Thiamine', 'Nondisplaced oblique fracture of shaft of unspecified radius, subsequent encounter for open fracture type IIIA, IIIB, or IIIC with delayed healing', '353.19', 'Poisoning by posterior pituitary hormones', 'Electroretinogram [ERG]'),
 (6, 'CITALOPRAM', 'Fracture of unspecified part of right clavicle, subsequent encounter for fracture with routine healing', '177.66', 'Benign neoplasm of brain', 'Upper arm reattachment'),
-(7, 'ck one 3-in-1 face makeup', 'Displaced fracture of unspecified ulna styloid process, sequela', '224.96', 'Other sickle-cell disease with crisis', 'Upper arm reattachment'),
+(7, 'CK one 3-in-1 face makeup', 'Displaced fracture of unspecified ulna styloid process, sequela', '224.00', 'Other sickle-cell disease with crisis', 'Upper arm reattachment'),
 (8, 'Calcarea Phos Kit Refill', 'Benign neoplasm of male genital organs', '274.70', 'Need for prophylactic vaccination and inoculation against diptheria-tetanus- pertussis with poliomyelitis [DTP + polio]', 'Upper arm reattachment'),
 (9, 'SALIX NIGRA POLLEN', 'Dislocation of tooth, sequela', '349.96', 'Suicide and self-inflicted poisoning by corrosive and caustic substances', 'Occupational therapy'),
 (10, 'Jet Lag and Shift Change', 'Stable burst fracture of unspecified thoracic vertebra, initial encounter for closed fracture', '121.90', 'Gingival recession, unspecified', 'Teleradiotherapy using photons'),
 (11, 'Mexiletine Hydrochloride', 'Damage to pelvic organs following complete or unspecified spontaneous abortion', '71.04', 'Tuberculosis of unspecified bones and joints, unspecified', 'Bone graft, patella'),
-(12, 'allergy', 'Stress fracture, hip, unspecified, subsequent encounter for fracture with malunion', '305.23', 'Dysplasia of prostate', 'Diagnostic aspiration of orbit'),
+(12, 'Allergy', 'Stress fracture, hip, unspecified, subsequent encounter for fracture with malunion', '305.00', 'Dysplasia of prostate', 'Diagnostic aspiration of orbit'),
 (13, 'Modesa anti-bacterial hand gel', 'Laceration of ovary', '379.40', 'Unspecified alcohol-induced mental disorders', 'Electroretinogram [ERG]'),
 (14, 'Cherry', 'Subperiosteal abscess of mastoid', '256.41', 'Endodontic underfill', 'Upper arm reattachment'),
 (15, 'Tolnaftate', 'Chronic inflammation of postmastoidectomy cavity', '360.00', 'Personal history, urinary (tract) infection', 'Upper arm reattachment'),
@@ -469,10 +468,24 @@ INSERT INTO `Products` (`ID`, `Name`, `Description`, `Price`, `Remarks`, `Catego
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Shops`
+-- Stand-in structure for view `productssuppliers`
+-- (See below for the actual view)
+--
+CREATE TABLE `productssuppliers` (
+`deliveryID` int(11)
+,`productName` varchar(50)
+,`supplierName` varchar(50)
+,`price` decimal(5,2)
+,`amount` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shops`
 --
 
-CREATE TABLE `Shops` (
+CREATE TABLE `shops` (
   `ID` int(11) NOT NULL,
   `City` varchar(50) COLLATE utf32_polish_ci NOT NULL,
   `Address` varchar(50) COLLATE utf32_polish_ci NOT NULL,
@@ -481,28 +494,28 @@ CREATE TABLE `Shops` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Shops`
+-- Dumping data for table `shops`
 --
 
-INSERT INTO `Shops` (`ID`, `City`, `Address`, `Phone`, `Email`) VALUES
+INSERT INTO `shops` (`ID`, `City`, `Address`, `Phone`, `Email`) VALUES
 (1, 'Warsaw', '55381 3rd Lane', '939 077 720', 'Warsaw@aptekopol.pl'),
 (2, 'Paris', '5330 Packers Way', '708 226 396', 'Paris@aptekopol.pl'),
-(3, 'Valjevo', '3 Village Green Place', '801 835 184', 'Valjevo@aptekopol.pl'),
-(4, 'Lugait', '03964 Corben Drive', '352 370 373', 'Lugait@aptekopol.pl'),
-(5, 'Rozhniv', '4962 Brickson Park Parkway', '847 316 993', 'Rozhniv@aptekopol.pl'),
-(6, 'Kokaj', '8 Kensington Place', '504 764 634', 'Kokaj@aptekopol.pl'),
-(7, 'Kasulu', '251 Dayton Point', '096 621 836', 'Kasulu@aptekopol.pl'),
-(8, 'Arnelas', '00 Arizona Pass', '784 414 493', 'Arnelas@aptekopol.pl'),
-(9, 'Lamarosa', '0018 Myrtle Parkway', '881 295 606', 'Lamarosa@aptekopol.pl'),
-(10, 'Lesichevo', '29091 Dexter Pass', '278 950 888', 'Lesichevo@aptekopol.pl');
+(3, 'Berlin', '3 Village Green Place', '801 835 184', 'Berlin@aptekopol.pl'),
+(4, 'London', '03964 Corben Drive', '352 370 373', 'London@aptekopol.pl'),
+(5, 'Brussels', '4962 Brickson Park Parkway', '847 316 993', 'Brussels@aptekopol.pl'),
+(6, 'Vienna', '8 Kensington Place', '504 764 634', 'Vienna@aptekopol.pl'),
+(7, 'Zagreb', '251 Dayton Point', '096 621 836', 'Zagreb@aptekopol.pl'),
+(8, 'Athens', '00 Arizona Pass', '784 414 493', 'Athens@aptekopol.pl'),
+(9, 'Madrid', '0018 Myrtle Parkway', '881 295 606', 'Madrid@aptekopol.pl'),
+(10, 'Amsterdam', '29091 Dexter Pass', '278 950 888', 'Amsterdam@aptekopol.pl');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Shop_Storage_Status`
+-- Table structure for table `shop_storage_status`
 --
 
-CREATE TABLE `Shop_Storage_Status` (
+CREATE TABLE `shop_storage_status` (
   `ID` int(11) NOT NULL,
   `Product_ID` int(11) NOT NULL,
   `Shop_ID` int(11) NOT NULL,
@@ -510,10 +523,10 @@ CREATE TABLE `Shop_Storage_Status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Shop_Storage_Status`
+-- Dumping data for table `shop_storage_status`
 --
 
-INSERT INTO `Shop_Storage_Status` (`ID`, `Product_ID`, `Shop_ID`, `Quantity`) VALUES
+INSERT INTO `shop_storage_status` (`ID`, `Product_ID`, `Shop_ID`, `Quantity`) VALUES
 (1, 28, 4, 29),
 (2, 49, 1, 23),
 (3, 40, 7, 5),
@@ -618,10 +631,10 @@ INSERT INTO `Shop_Storage_Status` (`ID`, `Product_ID`, `Shop_ID`, `Quantity`) VA
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Suppliers`
+-- Table structure for table `suppliers`
 --
 
-CREATE TABLE `Suppliers` (
+CREATE TABLE `suppliers` (
   `ID` int(11) NOT NULL,
   `Name` varchar(50) COLLATE utf32_polish_ci NOT NULL,
   `City` varchar(50) COLLATE utf32_polish_ci NOT NULL,
@@ -633,10 +646,10 @@ CREATE TABLE `Suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Suppliers`
+-- Dumping data for table `suppliers`
 --
 
-INSERT INTO `Suppliers` (`ID`, `Name`, `City`, `Address`, `Phone`, `Email`, `NIP`, `Remarks`) VALUES
+INSERT INTO `suppliers` (`ID`, `Name`, `City`, `Address`, `Phone`, `Email`, `NIP`, `Remarks`) VALUES
 (1, 'Bayer HealthCare Consumer Care', 'Oubei', '549 Shasta Drive', '668 122 104', 'fvonderempten0@dyndns.org', '395-603-78-25', 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.'),
 (2, 'Nelco Laboratories, Inc.', 'Kiuola', '1 Kim Terrace', '610 178 787', 'kbudnk1@photobucket.com', '434-129-00-78', 'Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.'),
 (3, 'Physicians Total Care, Inc.', 'Dłutów', '0 Bayside Center', '204 283 172', 'asutty2@soup.io', '118-191-26-91', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.'),
@@ -651,10 +664,10 @@ INSERT INTO `Suppliers` (`ID`, `Name`, `City`, `Address`, `Phone`, `Email`, `NIP
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Workers`
+-- Table structure for table `workers`
 --
 
-CREATE TABLE `Workers` (
+CREATE TABLE `workers` (
   `ID` int(11) NOT NULL,
   `Firstname` varchar(9) COLLATE utf32_polish_ci NOT NULL,
   `Surname` varchar(12) COLLATE utf32_polish_ci NOT NULL,
@@ -666,10 +679,10 @@ CREATE TABLE `Workers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Workers`
+-- Dumping data for table `workers`
 --
 
-INSERT INTO `Workers` (`ID`, `Firstname`, `Surname`, `City`, `Address`, `Phone`, `Email`, `PESEL`) VALUES
+INSERT INTO `workers` (`ID`, `Firstname`, `Surname`, `City`, `Address`, `Phone`, `Email`, `PESEL`) VALUES
 (1, 'Guenevere', 'Lowe', 'Banyuurip', '742 Almo Way', '184 784 579', 'glowe0@de.vu', '56600914566'),
 (2, 'Dynah', 'Dislee', 'Rouen', '5960 Orin Parkway', '829 471 951', 'ddislee1@technorati.com', '76849867867'),
 (3, 'Andy', 'Rainton', 'Liugong', '12 Carpenter Circle', '472 157 293', 'arainton2@wikimedia.org', '76047898732'),
@@ -704,10 +717,10 @@ INSERT INTO `Workers` (`ID`, `Firstname`, `Surname`, `City`, `Address`, `Phone`,
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `Workers_Authentication`
+-- Table structure for table `workers_authentication`
 --
 
-CREATE TABLE `Workers_Authentication` (
+CREATE TABLE `workers_authentication` (
   `ID` int(11) NOT NULL,
   `Worker_ID` int(11) NOT NULL,
   `Login` varchar(14) COLLATE utf32_polish_ci NOT NULL,
@@ -718,10 +731,10 @@ CREATE TABLE `Workers_Authentication` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
--- Zrzut danych tabeli `Workers_Authentication`
+-- Dumping data for table `workers_authentication`
 --
 
-INSERT INTO `Workers_Authentication` (`ID`, `Worker_ID`, `Login`, `Password`, `Password_last_change`, `UUID`, `RFID`) VALUES
+INSERT INTO `workers_authentication` (`ID`, `Worker_ID`, `Login`, `Password`, `Password_last_change`, `UUID`, `RFID`) VALUES
 (1, 1, 'glowe0', 'fWJVcCuvo', '2022-01-07 07:06:19', 'e4le7b0s-2mu1-cm34-2jic-lrtmva2swqjh', '0092'),
 (2, 2, 'ddislee1', 'E6BH1jdlweMc', '2022-04-09 02:55:47', 'c652vlwg-52os-uy11-pxtp-vhgvj7o2rip0', '2440'),
 (3, 3, 'arainton2', '409odurRiMJB', '2021-11-21 03:07:58', 'mh1yla1a-gg7a-x2c3-u4jn-6teihk2ytmix', '2773'),
@@ -750,16 +763,15 @@ INSERT INTO `Workers_Authentication` (`ID`, `Worker_ID`, `Login`, `Password`, `P
 (26, 26, 'rperrycostp', 'gfoRBnheRTS', '2021-12-30 14:20:50', 'ieuybzw0-3qdh-hdxo-hewk-ay0jc72hvqpv', '8190'),
 (27, 27, 'gcockinq', 'OhuBgGRstjbG', '2021-12-09 14:47:34', 'p79x3srj-rm6o-17g5-nd6n-8kk6ljao2cwz', '8890'),
 (28, 28, 'croalfer', 'HD3fciOX', '2021-12-20 08:35:55', '87safnbn-h49q-hlmj-yp5p-bxai9dlnosu7', '9054'),
-(29, 29, 'smacelroys', 'dqdGK61t8B', '2021-12-13 09:58:59', 'zyhxf8f3-genf-3c67-0kyx-ac428df9vj9j', '9814'),
-(30, 30, 'spolet', 'kEgMz5WLS', '2021-07-31 13:01:57', '4dacgd5u-ec4p-92re-ihx5-047n3fzlvpcy', '2708');
+(29, 29, 'smacelroys', 'dqdGK61t8B', '2021-12-13 09:58:59', 'zyhxf8f3-genf-3c67-0kyx-ac428df9vj9j', '9814');
 
 -- --------------------------------------------------------
 
 --
--- Zastąpiona struktura widoku `Zamówienia`
--- (Zobacz poniżej rzeczywisty widok)
+-- Stand-in structure for view `zamówienia`
+-- (See below for the actual view)
 --
-CREATE TABLE `Zamówienia` (
+CREATE TABLE `zamówienia` (
 `ID Zamówienia` int(11)
 ,`Login Klienta` varchar(50)
 ,`Sklep` varchar(50)
@@ -771,42 +783,51 @@ CREATE TABLE `Zamówienia` (
 -- --------------------------------------------------------
 
 --
--- Struktura widoku `Zamówienia`
+-- Structure for view `productssuppliers`
 --
-DROP TABLE IF EXISTS `Zamówienia`;
+DROP TABLE IF EXISTS `productssuppliers`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`v3rs`@`localhost` SQL SECURITY DEFINER VIEW `Zamówienia`  AS  select `Orders`.`Order_ID` AS `ID Zamówienia`,`Clients`.`Login` AS `Login Klienta`,`Shops`.`City` AS `Sklep`,concat(`Workers`.`Firstname`,' ',`Workers`.`Surname`) AS `Pracownik`,`Products`.`Name` AS `Nazwa Produktu`,`Orders`.`Quantity` AS `Ilość` from ((((`Orders` join `Clients`) join `Shops`) join `Workers`) join `Products`) where `Orders`.`Client_ID` like `Clients`.`ID` and `Orders`.`Shop_ID` like `Shops`.`ID` and `Orders`.`Worker_ID` like `Workers`.`ID` and `Orders`.`Product_ID` like `Products`.`ID` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `productssuppliers`  AS SELECT `delivery`.`ID` AS `deliveryID`, `products`.`Name` AS `productName`, `suppliers`.`Name` AS `supplierName`, `delivery`.`Price` AS `price`, `delivery`.`Amount` AS `amount` FROM ((`delivery` join `products`) join `suppliers`) WHERE `delivery`.`Product_ID` like `products`.`ID` AND `delivery`.`Supplier_ID` like `suppliers`.`ID``ID`  ;
 
---
--- Indeksy dla zrzutów tabel
---
+-- --------------------------------------------------------
 
 --
--- Indeksy dla tabeli `Clients`
+-- Structure for view `zamówienia`
 --
-ALTER TABLE `Clients`
+DROP TABLE IF EXISTS `zamówienia`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `zamówienia`  AS SELECT `orders`.`Order_ID` AS `ID Zamówienia`, `clients`.`Login` AS `Login Klienta`, `shops`.`City` AS `Sklep`, concat(`workers`.`Firstname`,' ',`workers`.`Surname`) AS `Pracownik`, `products`.`Name` AS `Nazwa Produktu`, `orders`.`Quantity` AS `Ilość` FROM ((((`orders` join `clients`) join `shops`) join `workers`) join `products`) WHERE `orders`.`Client_ID` like `clients`.`ID` AND `orders`.`Shop_ID` like `shops`.`ID` AND `orders`.`Worker_ID` like `workers`.`ID` AND `orders`.`Product_ID` like `products`.`ID``ID`  ;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `Contracts`
+-- Indexes for table `contracts`
 --
-ALTER TABLE `Contracts`
+ALTER TABLE `contracts`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Worker_ID` (`Worker_ID`,`Shop_ID`),
   ADD KEY `Contracts_Shop_ID` (`Shop_ID`);
 
 --
--- Indeksy dla tabeli `Delivery`
+-- Indexes for table `delivery`
 --
-ALTER TABLE `Delivery`
+ALTER TABLE `delivery`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Delivery_Product_ID` (`Product_ID`),
   ADD KEY `Delivery_Supplier_ID` (`Supplier_ID`);
 
 --
--- Indeksy dla tabeli `Orders`
+-- Indexes for table `orders`
 --
-ALTER TABLE `Orders`
+ALTER TABLE `orders`
   ADD UNIQUE KEY `Order_ID_2` (`Order_ID`),
   ADD KEY `Order_ID` (`Order_ID`),
   ADD KEY `Worker_ID` (`Worker_ID`),
@@ -815,141 +836,141 @@ ALTER TABLE `Orders`
   ADD KEY `Orders_Shop_ID` (`Shop_ID`);
 
 --
--- Indeksy dla tabeli `Products`
+-- Indexes for table `products`
 --
-ALTER TABLE `Products`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `Shops`
+-- Indexes for table `shops`
 --
-ALTER TABLE `Shops`
+ALTER TABLE `shops`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `Shop_Storage_Status`
+-- Indexes for table `shop_storage_status`
 --
-ALTER TABLE `Shop_Storage_Status`
+ALTER TABLE `shop_storage_status`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Shop_Storage_Status_Product_ID` (`Product_ID`),
   ADD KEY `Shop_Storage_Status_Shop_ID` (`Shop_ID`);
 
 --
--- Indeksy dla tabeli `Suppliers`
+-- Indexes for table `suppliers`
 --
-ALTER TABLE `Suppliers`
+ALTER TABLE `suppliers`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `Workers`
+-- Indexes for table `workers`
 --
-ALTER TABLE `Workers`
+ALTER TABLE `workers`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indeksy dla tabeli `Workers_Authentication`
+-- Indexes for table `workers_authentication`
 --
-ALTER TABLE `Workers_Authentication`
+ALTER TABLE `workers_authentication`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `Worker_ID` (`Worker_ID`);
 
 --
--- AUTO_INCREMENT dla tabel zrzutów
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `Clients`
+-- AUTO_INCREMENT for table `clients`
 --
-ALTER TABLE `Clients`
+ALTER TABLE `clients`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT dla tabeli `Contracts`
+-- AUTO_INCREMENT for table `contracts`
 --
-ALTER TABLE `Contracts`
+ALTER TABLE `contracts`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT dla tabeli `Delivery`
+-- AUTO_INCREMENT for table `delivery`
 --
-ALTER TABLE `Delivery`
+ALTER TABLE `delivery`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT dla tabeli `Products`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `Products`
+ALTER TABLE `products`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT dla tabeli `Shops`
+-- AUTO_INCREMENT for table `shops`
 --
-ALTER TABLE `Shops`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `shops`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT dla tabeli `Shop_Storage_Status`
+-- AUTO_INCREMENT for table `shop_storage_status`
 --
-ALTER TABLE `Shop_Storage_Status`
+ALTER TABLE `shop_storage_status`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
--- AUTO_INCREMENT dla tabeli `Suppliers`
+-- AUTO_INCREMENT for table `suppliers`
 --
-ALTER TABLE `Suppliers`
+ALTER TABLE `suppliers`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT dla tabeli `Workers`
+-- AUTO_INCREMENT for table `workers`
 --
-ALTER TABLE `Workers`
+ALTER TABLE `workers`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT dla tabeli `Workers_Authentication`
+-- AUTO_INCREMENT for table `workers_authentication`
 --
-ALTER TABLE `Workers_Authentication`
+ALTER TABLE `workers_authentication`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `Contracts`
+-- Constraints for table `contracts`
 --
-ALTER TABLE `Contracts`
-  ADD CONSTRAINT `Contracts_Shop_ID` FOREIGN KEY (`Shop_ID`) REFERENCES `Shops` (`ID`),
-  ADD CONSTRAINT `Contracts_Worker_ID` FOREIGN KEY (`Worker_ID`) REFERENCES `Workers` (`ID`);
+ALTER TABLE `contracts`
+  ADD CONSTRAINT `Contracts_Shop_ID` FOREIGN KEY (`Shop_ID`) REFERENCES `shops` (`ID`),
+  ADD CONSTRAINT `Contracts_Worker_ID` FOREIGN KEY (`Worker_ID`) REFERENCES `workers` (`ID`);
 
 --
--- Ograniczenia dla tabeli `Delivery`
+-- Constraints for table `delivery`
 --
-ALTER TABLE `Delivery`
-  ADD CONSTRAINT `Delivery_Product_ID` FOREIGN KEY (`Product_ID`) REFERENCES `Products` (`ID`),
-  ADD CONSTRAINT `Delivery_Supplier_ID` FOREIGN KEY (`Supplier_ID`) REFERENCES `Suppliers` (`ID`);
+ALTER TABLE `delivery`
+  ADD CONSTRAINT `Delivery_Product_ID` FOREIGN KEY (`Product_ID`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `Delivery_Supplier_ID` FOREIGN KEY (`Supplier_ID`) REFERENCES `suppliers` (`ID`);
 
 --
--- Ograniczenia dla tabeli `Orders`
+-- Constraints for table `orders`
 --
-ALTER TABLE `Orders`
-  ADD CONSTRAINT `Orders_Client_ID` FOREIGN KEY (`Client_ID`) REFERENCES `Clients` (`ID`),
-  ADD CONSTRAINT `Orders_Product_ID` FOREIGN KEY (`Product_ID`) REFERENCES `Products` (`ID`),
-  ADD CONSTRAINT `Orders_Shop_ID` FOREIGN KEY (`Shop_ID`) REFERENCES `Shops` (`ID`),
-  ADD CONSTRAINT `Orders_Worker_ID` FOREIGN KEY (`Worker_ID`) REFERENCES `Workers` (`ID`);
+ALTER TABLE `orders`
+  ADD CONSTRAINT `Orders_Client_ID` FOREIGN KEY (`Client_ID`) REFERENCES `clients` (`ID`),
+  ADD CONSTRAINT `Orders_Product_ID` FOREIGN KEY (`Product_ID`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `Orders_Shop_ID` FOREIGN KEY (`Shop_ID`) REFERENCES `shops` (`ID`),
+  ADD CONSTRAINT `Orders_Worker_ID` FOREIGN KEY (`Worker_ID`) REFERENCES `workers` (`ID`);
 
 --
--- Ograniczenia dla tabeli `Shop_Storage_Status`
+-- Constraints for table `shop_storage_status`
 --
-ALTER TABLE `Shop_Storage_Status`
-  ADD CONSTRAINT `Shop_Storage_Status_Product_ID` FOREIGN KEY (`Product_ID`) REFERENCES `Products` (`ID`),
-  ADD CONSTRAINT `Shop_Storage_Status_Shop_ID` FOREIGN KEY (`Shop_ID`) REFERENCES `Shops` (`ID`);
+ALTER TABLE `shop_storage_status`
+  ADD CONSTRAINT `Shop_Storage_Status_Product_ID` FOREIGN KEY (`Product_ID`) REFERENCES `products` (`ID`),
+  ADD CONSTRAINT `Shop_Storage_Status_Shop_ID` FOREIGN KEY (`Shop_ID`) REFERENCES `shops` (`ID`);
 
 --
--- Ograniczenia dla tabeli `Workers_Authentication`
+-- Constraints for table `workers_authentication`
 --
-ALTER TABLE `Workers_Authentication`
-  ADD CONSTRAINT `Workers_Authentication_Worker_ID` FOREIGN KEY (`Worker_ID`) REFERENCES `Workers` (`ID`);
+ALTER TABLE `workers_authentication`
+  ADD CONSTRAINT `Workers_Authentication_Worker_ID` FOREIGN KEY (`Worker_ID`) REFERENCES `workers` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
