@@ -16,14 +16,14 @@ namespace Aptekopol.DAL.Entities
         public int Client_ID { get; set; }
 
         public int Shop_ID { get; set; }
-        
+
         public int Worker_ID { get; set; }
 
         public int Product_ID { get; set; }
 
         public int Quantity { get; set; }
 
-        public DateTime Order_date { get; set; } 
+        public DateTime Order_date { get; set; }
         #endregion
 
         #region Constructors
@@ -59,7 +59,7 @@ namespace Aptekopol.DAL.Entities
             Worker_ID = order.Worker_ID;
             Product_ID = order.Product_ID;
             Quantity = order.Quantity;
-            Order_date = order.Order_date;           
+            Order_date = order.Order_date;
         }
         #endregion
 

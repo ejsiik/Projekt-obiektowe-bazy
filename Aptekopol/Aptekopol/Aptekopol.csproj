@@ -123,6 +123,7 @@
     <Compile Include="DAL\Entities\Client.cs" />
     <Compile Include="DAL\Entities\Contract.cs" />
     <Compile Include="DAL\Entities\Delivery.cs" />
+    <Compile Include="DAL\Entities\Order.cs" />
     <Compile Include="DAL\Entities\Product.cs" />
     <Compile Include="DAL\Entities\ProductSupplier.cs" />
     <Compile Include="DAL\Entities\Shop.cs" />
