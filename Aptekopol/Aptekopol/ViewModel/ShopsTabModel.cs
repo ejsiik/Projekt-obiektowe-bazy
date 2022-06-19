@@ -292,7 +292,7 @@ namespace Aptekopol.ViewModel
                             } else
                             {
                                 ClearForm();
-                                System.Windows.MessageBox.Show("Nie udało się usunąć sklepu z Bazy Danych, ponieważ ma powiązanych rpacowników i zamówienia.");
+                                System.Windows.MessageBox.Show("Nie udało się usunąć sklepu z Bazy Danych, ponieważ ma powiązanych pacowników i zamówienia.");
                             }
                         },
                         arg =>

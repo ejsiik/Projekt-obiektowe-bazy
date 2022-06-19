@@ -17,8 +17,9 @@ namespace Aptekopol.ViewModel
         #region Attributes 
         private Model model = null;
 
-        // Obsługa listy produktów
+        // Obsługa list
         private ObservableCollection<Product> products = null;
+        private ObservableCollection<ProductSupplier> productsSuppliers = null;
         private int selectedProductIndex = -1;
 
         // Obsługa szczegółów produktów
@@ -35,11 +36,25 @@ namespace Aptekopol.ViewModel
         {
             this.model = model;
             this.products = model.ProductsCollection;
+            this.productsSuppliers = model.ProductsSuppliersCollection;
         }
         #endregion
 
         #region Methods
         public Product CurrentProduct { get; set; }
+
+        public ObservableCollection<ProductSupplier> CurrentProductSupplier { get; set; }
+
+        public ObservableCollection<ProductSupplier> ProductsSuppliers
+        {
+            get { return this.productsSuppliers; }
+            set
+            {
+                this.productsSuppliers = value;
+
+                onPropertyChanged(nameof(ProductsSuppliers));
+            }
+        }
 
         public ObservableCollection<Product> Products
         {
@@ -226,6 +241,8 @@ namespace Aptekopol.ViewModel
                                 Price_product = CurrentProduct.Price;
                                 Remarks_product = CurrentProduct.Remarks;
                                 Category_product = CurrentProduct.Category;
+
+
 
                                 AddStatus = false;
                                 EditStatus = true;

@@ -8,23 +8,33 @@ namespace Aptekopol.Model
 {
     using DAL.Entities;
     using DAL.Repo;
+    using DAL.Views;
     using System.Collections.ObjectModel;
 
     class Model
     {
-        #region DB State
+        #region DB Tables
         public ObservableCollection<Worker> WorkersCollection { get; set; } = new ObservableCollection<Worker>();
         public ObservableCollection<Shop> ShopsCollection { get; set; } = new ObservableCollection<Shop>();
         public ObservableCollection<Product> ProductsCollection { get; set; } = new ObservableCollection<Product>();
+        public ObservableCollection<Client> ClientsCollection { get; set; } = new ObservableCollection<Client>();
+        public ObservableCollection<Supplier> SuppliersCollection { get; set; } = new ObservableCollection<Supplier>();
+        #endregion
+
+        #region DB Views
+        public ObservableCollection<ProductSupplier> ProductsSuppliersCollection { get; set; } = new ObservableCollection<ProductSupplier>();
         #endregion
 
         #region Constructors
         //Pobranie danych z BD do kolekcji
         public Model()
         {
+            // Tables
             var workers = Workers.GetAllWorkers();
             var shops = Shops.GetAllShops();
             var products = Products.GetAllProducts();
+            var clients = Clients.GetAllClients();
+            var suppliers = Suppliers.GetAllSuppliers();
 
             foreach (var w in workers)
                 WorkersCollection.Add(w);
@@ -34,6 +44,18 @@ namespace Aptekopol.Model
 
             foreach (var p in products)
                 ProductsCollection.Add(p);
+
+            foreach (var c in clients)
+                ClientsCollection.Add(c);
+
+            foreach (var s in suppliers)
+                SuppliersCollection.Add(s);
+
+            // Views
+            var productsSuppliers = ProductsSuppliers.GetAllProductsSuppliers();
+
+            foreach (var ps in productsSuppliers)
+                ProductsSuppliersCollection.Add(ps);
         }
         #endregion
 
@@ -147,6 +169,84 @@ namespace Aptekopol.Model
             if (Products.DelProduct(product))
             {
                 ProductsCollection.Remove(product);
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
+        #region Shop Methods
+        public bool CheckIfClientExist(Client client) => ClientsCollection.Contains(client);
+
+        public bool AddClient(Client client)
+        {
+            if (!CheckIfClientExist(client))
+            {
+                if (Clients.AddClient(client))
+                {
+                    ClientsCollection.Add(client);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool EditClient(Client client, int id)
+        {
+            if (Clients.EditClient(client, id))
+            {
+                client.ID = (sbyte?)id;
+                ClientsCollection[id - 1] = new Client(client);
+                return true;
+            }
+            return false;
+        }
+
+        public bool DelClient(Client client)
+        {
+            if (Clients.DelClient(client))
+            {
+                ClientsCollection.Remove(client);
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
+        #region Suppliers Methods
+        public bool CheckIfSupplierExist(Supplier supplier) => SuppliersCollection.Contains(supplier);
+
+        public bool AddSupplier(Supplier supplier)
+        {
+            if (!CheckIfSupplierExist(supplier))
+            {
+                if (Suppliers.AddSupplier(supplier))
+                {
+                    SuppliersCollection.Add(supplier);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool EditSupplier(Supplier supplier, int id)
+        {
+            if (Suppliers.EditSupplier(supplier, id))
+            {
+                supplier.ID = (sbyte?)id;
+                SuppliersCollection[id - 1] = new Supplier(supplier);
+                return true;
+            }
+            return false;
+        }
+
+        public bool DelSupplier(Supplier supplier)
+        {
+            if (Suppliers.DelSupplier(supplier))
+            {
+                SuppliersCollection.Remove(supplier);
                 return true;
             }
 

@@ -35,7 +35,7 @@ namespace Aptekopol.DAL.Entities
 
         public string Password { get; set; }
 
-        public string PasswordLastChange { get; set; } //DATE?
+        public DateTime PasswordLastChange { get; set; } //DATE?
         #endregion
 
         #region Constructors
@@ -54,12 +54,12 @@ namespace Aptekopol.DAL.Entities
             Phone = reader["Phone"].ToString();
             Email = reader["Email"].ToString();
             Password = reader["Password"].ToString();
-            PasswordLastChange = reader["Password_last_change"].ToString();
+            PasswordLastChange = DateTime.Parse(reader["Password_last_change"].ToString());
         }
 
         // Stworzenie obiektu na podstawie podanych danych z ID NULL
         public Client(string login, string firstname, string surname, bool iscompany, string name, string nip, 
-            string city, string address, string phone, string email, string password, string passwordlastchange)
+            string city, string address, string phone, string email, string password, DateTime passwordlastchange)
         {
             ID = null;
             Login = login.Trim();
@@ -73,7 +73,7 @@ namespace Aptekopol.DAL.Entities
             Phone = phone.Trim();
             Email = email.Trim();
             Password = password.Trim();
-            PasswordLastChange = passwordlastchange.Trim();
+            PasswordLastChange = passwordlastchange;
         }
 
         public Client(Client client)
@@ -118,7 +118,7 @@ namespace Aptekopol.DAL.Entities
             if (Phone.ToLower() != client.Phone.ToLower()) return false;
             if (Email.ToLower() != client.Email.ToLower()) return false;
             if (Password.ToLower() != client.Password.ToLower()) return false;
-            if (PasswordLastChange.ToLower() != client.PasswordLastChange.ToLower()) return false;
+            if (PasswordLastChange != client.PasswordLastChange) return false;
 
             return true;
         }

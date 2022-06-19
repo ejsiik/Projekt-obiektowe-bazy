@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Aptekopol"
         xmlns:vm="clr-namespace:Aptekopol.ViewModel"
         mc:Ignorable="d"
-        Title="Zarządzanie" Height="450" Width="800">
+        Title="Zarządzanie" Height="800" Width="800">
 
     <Window.Resources>
         <vm:MainViewModel x:Key="mainVM"/>
@@ -15,6 +15,7 @@
 
     <Grid DataContext="{StaticResource mainVM}">
         <TabControl>
+            
             <TabItem x:Name="WorkersList" Header="Zarządzanie pracownikami">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -108,6 +109,32 @@
                                     Command="{Binding WorkersTabVM.Clear}"
                              />
                         </Grid>
+
+                        <DataGrid
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding WorkersTabVM.Workers}"
+                              SelectedItem="{Binding WorkersTabVM.CurrentWorker}" 
+                              SelectedIndex="{Binding WorkersTabVM.SelectedWorkerIndex, Mode=TwoWay}" >
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                                <DataGridTextColumn Header="Imię" Binding="{Binding Firstname}" />
+                                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Surname}" />
+                            </DataGrid.Columns>
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction 
+                                    Command="{Binding WorkersTabVM.LoadForm}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                        </DataGrid>
+
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -281,10 +308,152 @@
                                     Command="{Binding ProductsTabVM.Clear}"
                              />
                         </Grid>
+
+                        <!-- LISTA Dostawców  -->
+                        <DataGrid
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ProductsTabVM.ProductsSuppliers}">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding DeliveryID}" />
+                                <DataGridTextColumn Header="Nazwa" Binding="{Binding ProductName}" />
+                                <DataGridTextColumn Header="Dostawca" Binding="{Binding SupplierName}" />
+                                <DataGridTextColumn Header="Cena zakupu" Binding="{Binding Price}" />
+                                <DataGridTextColumn Header="Ilość" Binding="{Binding Amount}" />
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
                     </StackPanel>
                 </Grid>
             </TabItem>
 
+            <TabItem x:Name="ClientsList" Header="Zarządzanie klientami">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- LISTA Klientów  -->
+                    <DataGrid x:Name="clients"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ClientsTabVM.Clients}"
+                              SelectedItem="{Binding ClientsTabVM.CurrentClient}"
+                              SelectedIndex="{Binding ClientsTabVM.SelectedClientIndex, Mode=TwoWay}" >
+                        
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                            <DataGridTextColumn Header="Nazwa użytkownika" Binding="{Binding Login}" />
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction 
+                                    Command="{Binding ClientsTabVM.LoadForm}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </DataGrid>
+
+                    <!-- EDYCJA/DODAWANIE Produktu -->
+                    <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                        <TextBlock Text="Nazwa użytkownika:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Login }"/>
+
+                        <TextBlock Text="Imię:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Firstname }"/>
+
+                        <TextBlock Text="Nazwisko:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Surname }"/>
+
+                        <TextBlock Text="Nazwa Firmy:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Name }"/>
+
+                        <TextBlock Text="NIP:"/>
+                        <TextBox Text="{Binding ClientsTabVM.NIP }"/>
+
+                        <TextBlock Text="Miasto:"/>
+                        <TextBox Text="{Binding ClientsTabVM.City }"/>
+
+                        <TextBlock Text="Adres:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Address }"/>
+
+                        <TextBlock Text="Numer telefonu:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Phone }"/>
+
+                        <TextBlock Text="E-mail:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Email }"/>
+
+                        <TextBlock Text="Hasło:"/>
+                        <TextBox Text="{Binding ClientsTabVM.Password }"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button x:Name="button_Add_client" Grid.Column="0" Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Add}"
+                                    IsEnabled="{Binding ClientsTabVM.AddStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Edit_client" Grid.Column="1" Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Edit}"
+                                    IsEnabled="{Binding ClientsTabVM.EditStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Del_client" Grid.Column="2" Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Del}"
+                                    IsEnabled="{Binding ClientsTabVM.DelStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Clear_client" Grid.Column="3" Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Clear}"
+                             />
+                        </Grid>
+
+                            <DataGrid
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ClientsTabVM.Clients}"
+                              SelectedItem="{Binding ClientsTabVM.CurrentClient}"
+                              SelectedIndex="{Binding ClientsTabVM.SelectedClientIndex, Mode=TwoWay}" >
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                                    <DataGridTextColumn Header="Nazwa użytkownika" Binding="{Binding Login}" />
+                                </DataGrid.Columns>
+
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction 
+                                    Command="{Binding ClientsTabVM.LoadForm}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+
+                            </DataGrid>
+                        
+                    </StackPanel>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
