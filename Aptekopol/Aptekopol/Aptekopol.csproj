@@ -124,6 +124,7 @@
     <Compile Include="DAL\Entities\Contract.cs" />
     <Compile Include="DAL\Entities\Delivery.cs" />
     <Compile Include="DAL\Entities\Product.cs" />
+    <Compile Include="DAL\Entities\OrderView.cs" />
     <Compile Include="DAL\Entities\ProductSupplier.cs" />
     <Compile Include="DAL\Entities\Shop.cs" />
     <Compile Include="DAL\Entities\Supplier.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="DAL\Repo\Shops.cs" />
     <Compile Include="DAL\Repo\Suppliers.cs" />
     <Compile Include="DAL\Repo\Workers.cs" />
+    <Compile Include="DAL\Views\ordersView.cs" />
     <Compile Include="DAL\Views\ProductsSuppliers.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="ViewModel\BaseClasses\RelayCommand.cs" />

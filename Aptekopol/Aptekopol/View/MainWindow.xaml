@@ -110,31 +110,6 @@
                              />
                         </Grid>
 
-                        <DataGrid
-                              Grid.Column="0"  
-                              IsReadOnly="True"
-                              AutoGenerateColumns="False"
-                              GridLinesVisibility="None"
-                              AlternatingRowBackground="Lavender"
-                              ItemsSource="{Binding WorkersTabVM.Workers}"
-                              SelectedItem="{Binding WorkersTabVM.CurrentWorker}" 
-                              SelectedIndex="{Binding WorkersTabVM.SelectedWorkerIndex, Mode=TwoWay}" >
-
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                                <DataGridTextColumn Header="Imię" Binding="{Binding Firstname}" />
-                                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Surname}" />
-                            </DataGrid.Columns>
-
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction 
-                                    Command="{Binding WorkersTabVM.LoadForm}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-
-                        </DataGrid>
-
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -435,21 +410,19 @@
                               AutoGenerateColumns="False"
                               GridLinesVisibility="None"
                               AlternatingRowBackground="Lavender"
-                              ItemsSource="{Binding ClientsTabVM.Clients}"
-                              SelectedItem="{Binding ClientsTabVM.CurrentClient}"
-                              SelectedIndex="{Binding ClientsTabVM.SelectedClientIndex, Mode=TwoWay}" >
+                              ItemsSource="{Binding ClientsTabVM.CurrentOrdersView}">
 
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                                <DataGridTextColumn Header="Nazwa użytkownika" Binding="{Binding Login}" />
+                                <DataGridTextColumn Header="ID" Binding="{Binding OrderID}" />
+                                <DataGridTextColumn Header="Login Klienta" Binding="{Binding ClientLogin}" />
+                                <DataGridTextColumn Header="Data zamówienia" Binding="{Binding OrderDate}" />
+                                <DataGridTextColumn Header="nazwa Produktu" Binding="{Binding ProductName}" />
+                                <DataGridTextColumn Header="Ilość" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="Cena jd" Binding="{Binding UnitPrice}" />
+                                <DataGridTextColumn Header="Cena" Binding="{Binding TotalPrice}" />
+                                <DataGridTextColumn Header="Sklep" Binding="{Binding Shop}" />
+                                <DataGridTextColumn Header="Pracownik" Binding="{Binding AssignedTo}" />
                             </DataGrid.Columns>
-
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction 
-                                    Command="{Binding ClientsTabVM.LoadForm}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
 
                         </DataGrid>
 

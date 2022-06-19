@@ -17,8 +17,10 @@ namespace Aptekopol.ViewModel
         #region Attributes 
         private Model model = null;
 
-        // Obsługa listy sklepów
+        // Obsługa listy
         private ObservableCollection<Client> clients = null;
+        private ObservableCollection<OrderView> ordersView = null;
+        private ObservableCollection<OrderView> currentOrdersView = null;
         private int selectedClientIndex = -1;
 
         // Obsługa szczegółów
@@ -37,6 +39,7 @@ namespace Aptekopol.ViewModel
         {
             this.model = model;
             this.clients = model.ClientsCollection;
+            this.ordersView = model.OrdersViewCollection;
         }
         #endregion
 
@@ -51,6 +54,17 @@ namespace Aptekopol.ViewModel
                 this.clients = value;
                 
                 onPropertyChanged(nameof(Clients));
+            }
+        }
+
+        public ObservableCollection<OrderView> CurrentOrdersView
+        {
+            get { return currentOrdersView; }
+            set
+            {
+                this.currentOrdersView = value;
+
+                onPropertyChanged(nameof(CurrentOrdersView));
             }
         }
 
@@ -108,6 +122,8 @@ namespace Aptekopol.ViewModel
             Email = "";
             Password = "";
             Password_last_change = dataNow;
+
+            CurrentOrdersView = new ObservableCollection<OrderView>();
 
             AddStatus = true;
             EditStatus = false;
@@ -283,6 +299,16 @@ namespace Aptekopol.ViewModel
                                 Email = CurrentClient.Email;
                                 Password = CurrentClient.Password;
                                 Password_last_change = CurrentClient.PasswordLastChange;
+
+                                CurrentOrdersView = new ObservableCollection<OrderView>();
+
+                                for (int i = 0; i < ordersView.Count; i++)
+                                {
+                                    if (login == ordersView[i].ClientLogin)
+                                    {
+                                        CurrentOrdersView.Add(ordersView[i]);
+                                    }
+                                }
 
                                 AddStatus = false;
                                 EditStatus = true;

@@ -11,6 +11,7 @@ namespace Aptekopol.ViewModel
     using DAL.Entities;
     using BaseClass;
     using System.Windows.Input;
+
     internal class SuppliersTabModel : ViewModelBase
     {
         #region Attributes 

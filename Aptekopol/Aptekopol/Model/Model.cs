@@ -19,10 +19,12 @@ namespace Aptekopol.Model
         public ObservableCollection<Product> ProductsCollection { get; set; } = new ObservableCollection<Product>();
         public ObservableCollection<Client> ClientsCollection { get; set; } = new ObservableCollection<Client>();
         public ObservableCollection<Supplier> SuppliersCollection { get; set; } = new ObservableCollection<Supplier>();
+        public ObservableCollection<Delivery> DeliveryCollection { get; set; } = new ObservableCollection<Delivery>();
         #endregion
 
         #region DB Views
         public ObservableCollection<ProductSupplier> ProductsSuppliersCollection { get; set; } = new ObservableCollection<ProductSupplier>();
+        public ObservableCollection<OrderView> OrdersViewCollection { get; set; } = new ObservableCollection<OrderView>();
         #endregion
 
         #region Constructors
@@ -35,6 +37,7 @@ namespace Aptekopol.Model
             var products = Products.GetAllProducts();
             var clients = Clients.GetAllClients();
             var suppliers = Suppliers.GetAllSuppliers();
+            //var delivery = Deliveries.GetAllDelivery();
 
             foreach (var w in workers)
                 WorkersCollection.Add(w);
@@ -53,9 +56,13 @@ namespace Aptekopol.Model
 
             // Views
             var productsSuppliers = ProductsSuppliers.GetAllProductsSuppliers();
+            var ordersView = OrdersView.GetAllOrdersView();
 
             foreach (var ps in productsSuppliers)
                 ProductsSuppliersCollection.Add(ps);
+
+            foreach (var ov in ordersView)
+                OrdersViewCollection.Add(ov);
         }
         #endregion
 
