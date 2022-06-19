@@ -350,6 +350,25 @@ namespace Aptekopol.ViewModel
             }
 
         }
+
+        // Obsługa czyszczenia formularza
+        private ICommand clear = null;
+        public ICommand Clear
+        {
+            get
+            {
+                if (clear == null)
+                    clear = new RelayCommand(
+                        arg =>
+                        {
+                            ClearForm();
+                        },
+                        arg => true
+                        );
+
+                return clear;
+            }
+        }
         #endregion
     }
 }

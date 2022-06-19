@@ -78,21 +78,34 @@
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="button_Add" Grid.Column="0" Content="Dodaj"
+                            <Button x:Name="button_Add" 
+                                    Grid.Column="0" 
+                                    Content="Dodaj"
                                     Margin="5"
                                     Command="{Binding WorkersTabVM.Add}"
                                     IsEnabled="{Binding WorkersTabVM.AddStatus, Mode=OneWay}"
                              />
-                            <Button x:Name="button_Edit" Grid.Column="1" Content="Edytuj" 
+                            <Button x:Name="button_Edit" 
+                                    Grid.Column="1" 
+                                    Content="Edytuj" 
                                     Margin="5"
                                     Command="{Binding WorkersTabVM.Edit}"
                                     IsEnabled="{Binding WorkersTabVM.EditStatus, Mode=OneWay}"
                              />
-                            <Button x:Name="button_Del" Grid.Column="3" Content="Usuń"
+                            <Button x:Name="button_Del" 
+                                    Grid.Column="2" 
+                                    Content="Usuń"
                                     Margin="5"
                                     Command="{Binding WorkersTabVM.Del}"
                                     IsEnabled="{Binding WorkersTabVM.DelStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Clear" 
+                                    Grid.Column="3" 
+                                    Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding WorkersTabVM.Clear}"
                              />
                         </Grid>
                     </StackPanel>
@@ -152,22 +165,35 @@
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="button_Add_shop" Grid.Column="0" Content="Dodaj"
+                            <Button x:Name="button_Add_shop" 
+                                    Grid.Column="0" 
+                                    Content="Dodaj"
                                     Margin="5"
                                     Command="{Binding ShopsTabVM.Add}"
                                     IsEnabled="{Binding ShopsTabVM.AddStatus, Mode=OneWay}"
                              />
-                            <Button x:Name="button_Edit_shop" Grid.Column="1" Content="Edytuj" 
+                            <Button x:Name="button_Edit_shop" 
+                                    Grid.Column="1" 
+                                    Content="Edytuj" 
                                     Margin="5"
                                     Command="{Binding ShopsTabVM.Edit}"
                                     IsEnabled="{Binding ShopsTabVM.EditStatus, Mode=OneWay}"
                              />
-                            <Button x:Name="button_Del_shop" Grid.Column="3" Content="Usuń"
+                            <Button x:Name="button_Del_shop" 
+                                    Grid.Column="2" 
+                                    Content="Usuń"
                                     Margin="5"
                                     Command="{Binding ShopsTabVM.Del}"
                                     IsEnabled="{Binding ShopsTabVM.DelStatus, Mode=OneWay}"
                              />
+                            <Button x:Name="button_Clear_shop" 
+                                    Grid.Column="3" 
+                                    Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding ShopsTabVM.Clear}"
+                             />
                         </Grid>
                     </StackPanel>
                 </Grid>
@@ -258,92 +284,6 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
- 
-            <TabItem x:Name="ProductsList" Header="Zarządzanie produktami">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.5*"/>
-                        <ColumnDefinition Width="0.1*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <!-- LISTA Produktów  -->
-                    <DataGrid x:Name="products"
-                              Grid.Column="0"  
-                              IsReadOnly="True"
-                              AutoGenerateColumns="False"
-                              GridLinesVisibility="None"
-                              AlternatingRowBackground="Lavender"
-                              ItemsSource="{Binding ProductsTabVM.Products}"
-                              SelectedItem="{Binding ProductsTabVM.CurrentProduct}" 
-                              SelectedIndex="{Binding ProductsTabVM.SelectedProductIndex, Mode=TwoWay}" >
-
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                            <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" />
-                        </DataGrid.Columns>
-
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction 
-                                    Command="{Binding ProductsTabVM.LoadForm}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-
-                    </DataGrid>
-
-                    <!-- EDYCJA/DODAWANIE Produktu -->
-                    <StackPanel Grid.Column="2"
-                                Margin="5">
-
-                        <TextBlock Text="Nazwa:"/>
-                        <TextBox x:Name="name_product" Text="{Binding ProductsTabVM.Name_product}"/>
-
-                        <TextBlock Text="Opis:"/>
-                        <TextBox x:Name="description_product"
-                                   TextWrapping="Wrap"
-                                   AcceptsReturn="True"
-                                   VerticalScrollBarVisibility="Visible"
-                                   Text="{Binding ProductsTabVM.Description_product}"/>
-
-                        <TextBlock Text="Cena:"/>
-                        <TextBox x:Name="price_product" Text="{Binding ProductsTabVM.Price_product}"/>
-
-                        <TextBlock Text="Uwagi:"/>
-                        <TextBox x:Name="remarks_product" Text="{Binding ProductsTabVM.Remarks_product}"/>
-
-                        <TextBlock Text="Kategoria:"/>
-                        <TextBox x:Name="category_product" Text="{Binding ProductsTabVM.Category_product}"/>
-
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button x:Name="button_Add_product" Grid.Column="0" Content="Dodaj"
-                                    Margin="5"
-                                    Command="{Binding ProductsTabVM.Add}"
-                                    IsEnabled="{Binding ProductsTabVM.AddStatus, Mode=OneWay}"
-                             />
-                            <Button x:Name="button_Edit_product" Grid.Column="1" Content="Edytuj" 
-                                    Margin="5"
-                                    Command="{Binding ProductsTabVM.Edit}"
-                                    IsEnabled="{Binding ProductsTabVM.EditStatus, Mode=OneWay}"
-                             />
-                            <Button x:Name="button_Del_product" Grid.Column="2" Content="Usuń"
-                                    Margin="5"
-                                    Command="{Binding ProductsTabVM.Del}"
-                                    IsEnabled="{Binding ProductsTabVM.DelStatus, Mode=OneWay}"
-                             />
-                            <Button x:Name="button_Clear_product" Grid.Column="3" Content="Wyczyść"
-                                    Margin="5"
-                                    Command="{Binding ProductsTabVM.Clear}"
-                             />
-                        </Grid>
-                    </StackPanel>
-                </Grid> 
-            </TabItem> -->
 
         </TabControl>
     </Grid>

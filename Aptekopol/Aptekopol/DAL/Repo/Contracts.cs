@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 namespace Aptekopol.DAL.Repo
 {
     using Entities;
-    internal class Shops
+    internal class Contracts
     {
         #region Queries
         private const string GET_ALL_SHOPS = "SELECT * FROM `shops`";

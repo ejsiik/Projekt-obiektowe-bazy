@@ -98,6 +98,7 @@ namespace Aptekopol.ViewModel
             Phone_shop = "";
             Email_shop = "";
             selectedShopIndex = -1;
+
             AddStatus = true;
             EditStatus = false;
             DelStatus = false;
@@ -288,6 +289,10 @@ namespace Aptekopol.ViewModel
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie usunięto skelp z Bazy Danych!");
+                            } else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się usunąć sklepu z Bazy Danych, ponieważ ma powiązanych rpacowników i zamówienia.");
                             }
                         },
                         arg =>
@@ -299,7 +304,25 @@ namespace Aptekopol.ViewModel
 
                 return del;
             }
+        }
 
+        // Obsługa czyszczenia formularza
+        private ICommand clear = null;
+        public ICommand Clear
+        {
+            get
+            {
+                if (clear == null)
+                    clear = new RelayCommand(
+                        arg =>
+                        {
+                            ClearForm();
+                        },
+                        arg => true
+                        );
+
+                return clear;
+            }
         }
         #endregion
     }

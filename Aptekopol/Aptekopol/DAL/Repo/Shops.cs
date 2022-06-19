@@ -129,8 +129,15 @@ namespace Aptekopol.DAL.Repo
                 MySqlCommand command = new MySqlCommand(DEL_SHOP, connection);
                 connection.Open();
 
-                var n = command.ExecuteNonQuery();
-                if (n == 1) status = true;
+                try
+                {
+                    var n = command.ExecuteNonQuery();
+                    if (n == 1) status = true;
+                }
+                catch
+                {
+                    status = false;
+                }
 
                 connection.Close();
             }

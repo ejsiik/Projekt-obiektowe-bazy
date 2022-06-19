@@ -190,7 +190,7 @@ namespace Aptekopol.ViewModel
             }
         }
 
-        // Załadowywanie
+        // Obsługa czyszczenia formularza
         private ICommand clear = null;
         public ICommand Clear
         {
@@ -338,7 +338,6 @@ namespace Aptekopol.ViewModel
 
                 return del;
             }
-
         }
         #endregion
     }
