@@ -16,6 +16,7 @@ namespace Aptekopol.Model
         public ObservableCollection<Worker> WorkersCollection { get; set; } = new ObservableCollection<Worker>();
         public ObservableCollection<Shop> ShopsCollection { get; set; } = new ObservableCollection<Shop>();
         public ObservableCollection<Product> ProductsCollection { get; set; } = new ObservableCollection<Product>();
+        public ObservableCollection<Supplier> SuppliersCollection { get; set; } = new ObservableCollection<Supplier>();
         #endregion
 
         #region Constructors
@@ -25,6 +26,7 @@ namespace Aptekopol.Model
             var workers = Workers.GetAllWorkers();
             var shops = Shops.GetAllShops();
             var products = Products.GetAllProducts();
+            var suppliers = Suppliers.GetAllSuppliers();
 
             foreach (var w in workers)
                 WorkersCollection.Add(w);
@@ -34,6 +36,9 @@ namespace Aptekopol.Model
 
             foreach (var p in products)
                 ProductsCollection.Add(p);
+
+            foreach (var sp in suppliers)
+                SuppliersCollection.Add(sp);
         }
         #endregion
 
@@ -147,6 +152,45 @@ namespace Aptekopol.Model
             if (Products.DelProduct(product))
             {
                 ProductsCollection.Remove(product);
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
+        #region Supplier Methods
+        public bool CheckIfSupplierExist(Supplier supplier) => SuppliersCollection.Contains(supplier);
+
+        public bool AddSupplier(Supplier supplier)
+        {
+            if (!CheckIfSupplierExist(supplier))
+            {
+                if (Suppliers.AddSupplier(supplier))
+                {
+                    SuppliersCollection.Add(supplier);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool EditSupplier(Supplier supplier, int id)
+        {
+            if (Suppliers.EditSupplier(supplier, id))
+            {
+                supplier.ID = (sbyte?)id;
+                SuppliersCollection[id - 1] = new Supplier(supplier);
+                return true;
+            }
+            return false;
+        }
+
+        public bool DelSupplier(Supplier supplier)
+        {
+            if (Suppliers.DelSupplier(supplier))
+            {
+                SuppliersCollection.Remove(supplier);
                 return true;
             }
 
