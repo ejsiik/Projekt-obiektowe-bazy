@@ -44,8 +44,6 @@ namespace Aptekopol.ViewModel
         #region Methods
         public Product CurrentProduct { get; set; }
 
-        public ObservableCollection<ProductSupplier> CurrentProductSupplier { get; set; }
-
         public ObservableCollection<ProductSupplier> CurrentProductSuppliers
         {
             get { return currentProductSuppliers; }
@@ -115,6 +113,8 @@ namespace Aptekopol.ViewModel
             Price_product = null;
             Remarks_product = "";
             Category_product = "";
+
+            CurrentProductSuppliers = new ObservableCollection<ProductSupplier>();
 
             selectedProductIndex = -1;
             AddStatus = true;
@@ -264,6 +264,8 @@ namespace Aptekopol.ViewModel
                                 Price_product = null;
                                 Remarks_product = "";
                                 Category_product = "";
+
+                                CurrentProductSuppliers = new ObservableCollection<ProductSupplier>();
 
                                 selectedProductIndex = -1;
                                 AddStatus = true;

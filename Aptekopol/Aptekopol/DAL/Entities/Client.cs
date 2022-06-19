@@ -35,7 +35,7 @@ namespace Aptekopol.DAL.Entities
 
         public string Password { get; set; }
 
-        public DateTime PasswordLastChange { get; set; } //DATE?
+        public DateTime PasswordLastChange { get; set; }
         #endregion
 
         #region Constructors

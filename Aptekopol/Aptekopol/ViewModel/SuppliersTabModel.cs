@@ -18,6 +18,8 @@ namespace Aptekopol.ViewModel
 
         // Obsługa listy dostawców
         private ObservableCollection<Supplier> suppliers = null;
+        private ObservableCollection<ProductSupplier> productsSuppliers = null;
+        private ObservableCollection<ProductSupplier> currentSupplierProducts = null;
         private int selectedSupplierIndex = -1;
 
         // Obsługa szczegółów dostawcy
@@ -33,6 +35,7 @@ namespace Aptekopol.ViewModel
         {
             this.model = model;
             this.suppliers = model.SuppliersCollection;
+            this.productsSuppliers = model.ProductsSuppliersCollection;
         }
         #endregion
 
@@ -47,6 +50,17 @@ namespace Aptekopol.ViewModel
                 this.suppliers = value;
 
                 onPropertyChanged(nameof(Suppliers));
+            }
+        }
+
+        public ObservableCollection<ProductSupplier> CurrentSupplierProducts
+        {
+            get { return currentSupplierProducts; }
+            set
+            {
+                this.currentSupplierProducts = value;
+
+                onPropertyChanged(nameof(CurrentSupplierProducts));
             }
         }
 
@@ -100,6 +114,9 @@ namespace Aptekopol.ViewModel
             NIP = "";
             Remarks = "";
             SelectedSupplierIndex = -1;
+
+            CurrentSupplierProducts = new ObservableCollection<ProductSupplier>();
+
             AddStatus = true;
             EditStatus = false;
             DelStatus = false;
@@ -229,6 +246,17 @@ namespace Aptekopol.ViewModel
                                 Email = CurrentSupplier.Email;
                                 NIP = CurrentSupplier.NIP;
                                 Remarks = CurrentSupplier.Remarks;
+
+                                CurrentSupplierProducts = new ObservableCollection<ProductSupplier>();
+
+                                for (int i = 0; i < productsSuppliers.Count; i++)
+                                {
+                                    if (name == productsSuppliers[i].SupplierName)
+                                    {
+                                        CurrentSupplierProducts.Add(productsSuppliers[i]);
+                                    }
+                                }
+
                                 AddStatus = false;
                                 EditStatus = true;
                                 DelStatus = true;
@@ -242,6 +270,9 @@ namespace Aptekopol.ViewModel
                                 Email = "";
                                 NIP = "";
                                 Remarks = "";
+
+                                CurrentSupplierProducts = new ObservableCollection<ProductSupplier>();
+
                                 AddStatus = true;
                                 EditStatus = false;
                                 DelStatus = false;
