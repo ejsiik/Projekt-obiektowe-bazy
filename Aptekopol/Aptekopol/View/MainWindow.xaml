@@ -456,6 +456,103 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
+
+            <TabItem x:Name="SuppliersList" Header="Zarządzanie dostawcami">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition Width="0.1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- LISTA Dostawców  -->
+                    <DataGrid x:Name="suppliers"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding SuppliersTabVM.Suppliers}"
+                              SelectedItem="{Binding SuppliersTabVM.CurrentSupplier}" 
+                              SelectedIndex="{Binding SuppliersTabVM.SelectedSupplierIndex, Mode=TwoWay}" >
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                            <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="Telefon" Binding="{Binding Phone}" />
+                        </DataGrid.Columns>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction 
+                                    Command="{Binding SuppliersTabVM.LoadForm}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                    </DataGrid>
+
+                    <!-- EDYCJA/DODAWANIE Dostawcy -->
+                    <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                        <TextBlock Text="Nazwa:"/>
+                        <TextBox x:Name="name"  Text="{Binding SuppliersTabVM.Name}"/>
+
+                        <TextBlock Text="Miasto:"/>
+                        <TextBox x:Name="citysup" Text="{Binding SuppliersTabVM.City}"/>
+
+                        <TextBlock Text="Adres:"/>
+                        <TextBox x:Name="addresssup" Text="{Binding SuppliersTabVM.Address}"/>
+
+                        <TextBlock Text="Numer telefonu:"/>
+                        <TextBox x:Name="phonesup" Text="{Binding SuppliersTabVM.Phone}"/>
+
+                        <TextBlock Text="E-mail:"/>
+                        <TextBox x:Name="emailsup" Text="{Binding SuppliersTabVM.Email}"/>
+
+                        <TextBlock Text="NIP:"/>
+                        <TextBox x:Name="nip" Text="{Binding SuppliersTabVM.NIP}"/>
+
+                        <TextBlock Text="Adnotacje:"/>
+                        <TextBox x:Name="remarks" Text="{Binding SuppliersTabVM.Remarks}"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="button_Add_sup" 
+                                    Grid.Column="0" 
+                                    Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Add}"
+                                    IsEnabled="{Binding SuppliersTabVM.AddStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Edit_sup" 
+                                    Grid.Column="1" 
+                                    Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Edit}"
+                                    IsEnabled="{Binding SuppliersTabVM.EditStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Del_sup" 
+                                    Grid.Column="2" 
+                                    Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Del}"
+                                    IsEnabled="{Binding SuppliersTabVM.DelStatus, Mode=OneWay}"
+                             />
+                            <Button x:Name="button_Clear_sup" 
+                                    Grid.Column="3" 
+                                    Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Clear}"
+                             />
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
