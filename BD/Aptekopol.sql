@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2022 at 02:20 PM
+-- Generation Time: Jun 19, 2022 at 03:48 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -40,7 +40,7 @@ CREATE TABLE `clients` (
   `Phone` varchar(50) COLLATE utf32_polish_ci DEFAULT NULL,
   `Email` varchar(50) COLLATE utf32_polish_ci DEFAULT NULL,
   `Password` varchar(50) COLLATE utf32_polish_ci NOT NULL,
-  `Password_last_change` datetime NOT NULL
+  `Password_last_change` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
@@ -53,7 +53,7 @@ INSERT INTO `clients` (`ID`, `Login`, `Firstname`, `Surname`, `Is_company`, `Nam
 (3, 'mmerriott2', 'Morissa', 'Merriott', 1, 'Youspan', '889-773-14-32', NULL, NULL, NULL, 'mmerriott2@hatena.ne.jp', '4IEokGRR', '2022-01-20 22:43:53'),
 (4, 'tbedder3', 'Thorndike', 'Bedder', 0, NULL, NULL, 'Pushchino', '53 Clarendon Trail', '978-989-910', 'tbedder3@bandcamp.com', 'jhCDsDbOYGiy', '2022-05-21 13:54:18'),
 (5, 'tswanton4', 'Tyrone', 'Swanton', 0, NULL, NULL, 'Shuyuan Zhen', '7755 Little Fleur Crossing', NULL, 'tswanton4@ezinearticles.com', 'Bp9NEZSK', '2021-08-18 11:48:02'),
-(6, 'vhegg5', 'Vitoria', 'Hegg', 1, 'Jaxspan', '110-721-53-76', 'Ishqoshim', '900 Scoville Street', NULL, NULL, 'WYELstf6e', '2021-07-08 17:43:06'),
+(6, 'bchampniss6', 'Vitoria', 'Hegg', 1, 'Jaxspan', '110-721-53-76', 'Ishqoshim', '900 Scoville Street', NULL, NULL, 'WYELstf6e', '2021-07-08 17:43:06'),
 (7, 'bchampniss6', 'Boony', 'Champniss', 1, 'Browsebug', '718-173-52-42', NULL, NULL, '698-221-628', 'bchampniss6@macromedia.com', 'XHk3BcX4Y2F', '2021-09-28 13:56:09'),
 (8, 'gbentham7', 'Georgeta', 'Bentham', 1, 'Buzzdog', '685-766-31-54', 'Nantes', '4 Waxwing Drive', '201-958-369', 'gbentham7@booking.com', '70QWZxbaw', '2022-01-27 05:42:55'),
 (9, 'ytrayling8', 'Yevette', 'Trayling', 0, NULL, NULL, NULL, NULL, NULL, 'ytrayling8@nsw.gov.au', 'dxscjLdkeoEi', '2022-04-13 19:45:46'),
@@ -393,6 +393,24 @@ INSERT INTO `orders` (`Order_ID`, `Client_ID`, `Shop_ID`, `Worker_ID`, `Product_
 (98, 1, 7, 20, 40, 4, '2022-03-12 11:01:31'),
 (99, 28, 10, 17, 44, 2, '2022-05-09 08:49:16'),
 (100, 35, 7, 24, 25, 13, '2021-12-10 09:26:49');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `ordersview`
+-- (See below for the actual view)
+--
+CREATE TABLE `ordersview` (
+`orderID` int(11)
+,`clientLogin` varchar(50)
+,`orderDate` datetime
+,`productName` varchar(50)
+,`quantity` int(11)
+,`unitPrice` decimal(5,2)
+,`totalPrice` decimal(15,2)
+,`shop` varchar(50)
+,`assignedTo` varchar(22)
+);
 
 -- --------------------------------------------------------
 
@@ -783,6 +801,15 @@ CREATE TABLE `zamówienia` (
 -- --------------------------------------------------------
 
 --
+-- Structure for view `ordersview`
+--
+DROP TABLE IF EXISTS `ordersview`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ordersview`  AS SELECT `orders`.`Order_ID` AS `orderID`, `clients`.`Login` AS `clientLogin`, `orders`.`Order_date` AS `orderDate`, `products`.`Name` AS `productName`, `orders`.`Quantity` AS `quantity`, `products`.`Price` AS `unitPrice`, `orders`.`Quantity`* `products`.`Price` AS `totalPrice`, `shops`.`City` AS `shop`, concat(`workers`.`Firstname`,' ',`workers`.`Surname`) AS `assignedTo` FROM ((((`orders` join `clients`) join `products`) join `shops`) join `workers`) WHERE `orders`.`Client_ID` like `clients`.`ID` AND `orders`.`Shop_ID` like `shops`.`ID` AND `orders`.`Worker_ID` like `workers`.`ID` AND `orders`.`Product_ID` like `products`.`ID``ID`  ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `productssuppliers`
 --
 DROP TABLE IF EXISTS `productssuppliers`;
@@ -918,7 +945,7 @@ ALTER TABLE `shop_storage_status`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `workers`
