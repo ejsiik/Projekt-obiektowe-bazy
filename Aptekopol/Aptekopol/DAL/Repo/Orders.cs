@@ -113,8 +113,15 @@ namespace Aptekopol.DAL.Repo
                     $" WHERE ID LIKE {shopID}";
                 MySqlCommand command = new MySqlCommand(UPDATE_SHOP, connection);
                 connection.Open();
-                var n = command.ExecuteNonQuery();
-                if (n == 1) status = true;
+                try
+                {
+                    var n = command.ExecuteNonQuery();
+                    if (n == 1) status = true;
+                }
+                catch
+                {
+                    status = false;
+                }
                 connection.Close();
             }
             return status;
@@ -128,8 +135,15 @@ namespace Aptekopol.DAL.Repo
                 string DEL_SHOP = $"DELETE FROM `shops` WHERE id LIKE {shop.ID}";
                 MySqlCommand command = new MySqlCommand(DEL_SHOP, connection);
                 connection.Open();
-                var n = command.ExecuteNonQuery();
-                if (n == 1) status = true;
+                try
+                {
+                    var n = command.ExecuteNonQuery();
+                    if (n == 1) status = true;
+                }
+                catch
+                {
+                    status = false;
+                }
                 connection.Close();
             }
             return status;

@@ -327,6 +327,11 @@ namespace Aptekopol.ViewModel
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie edytowano produkt w Bazie Danych!");
                             }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się edytować produktu w Bazie Danych, ponieważ ma istniejące dowiązania.");
+                            }
                         },
                         arg =>
                             Name_product != "" &&
@@ -354,6 +359,11 @@ namespace Aptekopol.ViewModel
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie usunięto produkt z Bazy Danych!");
+                            }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się usunąć produktu z Bazy Danych, ponieważ ma istniejące dowiązania.");
                             }
                         },
                         arg =>

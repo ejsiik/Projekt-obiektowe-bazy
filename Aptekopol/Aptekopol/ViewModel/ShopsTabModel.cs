@@ -263,6 +263,11 @@ namespace Aptekopol.ViewModel
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie edytowano sklep w Bazie Danych!");
                             }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się edytować z Bazy Danych, ponieważ ma istniejące dowiązania.");
+                            }
                         },
                         arg =>
                             City_shop != "" &&

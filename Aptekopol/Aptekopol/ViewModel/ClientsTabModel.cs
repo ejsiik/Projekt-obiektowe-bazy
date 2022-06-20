@@ -342,6 +342,7 @@ namespace Aptekopol.ViewModel
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie dodano nowego klienta do Bazy Danych!");
                             }
+
                         },
                         arg =>
                             Login != "" &&
@@ -378,6 +379,11 @@ namespace Aptekopol.ViewModel
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie edytowano klienta w Bazie Danych!");
                             }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się edytować klienta w Bazie Danych, ponieważ ma istniejące dowiązania.");
+                            }
                         },
                         arg =>
                             Login != "" &&
@@ -412,10 +418,11 @@ namespace Aptekopol.ViewModel
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie usunięto klienta z Bazy Danych!");
-                            } else
+                            } 
+                            else
                             {
                                 ClearForm();
-                                System.Windows.MessageBox.Show("Nie udało się usunąć klienta z Bazy Danych");
+                                System.Windows.MessageBox.Show("Nie udało się usunąć klienta z Bazy Danych, ponieważ ma istniejące dowiązania.");
                             }
                         },
                         arg =>
