@@ -65,14 +65,14 @@ namespace Aptekopol.DAL.Entities
             Login = login.Trim();
             Firstname = firstname.Trim();
             Surname = surname.Trim();
-            IsCompany = iscompany; //check czy na boolach działa bez niczego
-            Name = name.Trim();
-            NIP = nip.Trim();
-            City = city.Trim();
-            Address = address.Trim();
-            Phone = phone.Trim();
-            Email = email.Trim();
-            Password = password.Trim();
+            IsCompany = iscompany;
+            Name = name != null ? name.Trim() : "";
+            NIP = nip != null ? nip.Trim() : "";
+            City = city != null ? city.Trim() : "";
+            Address = address != null ? address.Trim() : "";
+            Phone = phone != null ? phone.Trim() : "";
+            Email = email != null ? email.Trim() : "";
+            Password = password != null ? password.Trim() : "";
             PasswordLastChange = passwordlastchange;
         }
 
@@ -98,8 +98,8 @@ namespace Aptekopol.DAL.Entities
         // Metoda generująca string dla INSERT TO
         public string ToInsert()
         {
-            return $"('{Login}', '{Firstname}', '{Surname}', '{IsCompany}', '{Name}', '{NIP}',  {City}'," +
-                $" '{Address}', '{Phone}', '{Email}', '{Password}', '{PasswordLastChange}')";
+            return $"('{Login}', '{Firstname}', '{Surname}', '{(IsCompany ? 1 : 0)}', '{Name ?? (object)DBNull.Value}', '{NIP ?? (object)DBNull.Value}',  '{City ?? (object)DBNull.Value}'," +
+                $" '{Address ?? (object)DBNull.Value}', '{Phone ?? (object)DBNull.Value}', '{Email ?? (object)DBNull.Value}', '{Password}', '{PasswordLastChange.ToString("yyyy-MM-dd HH:mm:ss")}')";
         }
 
         // Przeciążenie metody Equals

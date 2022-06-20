@@ -13,7 +13,7 @@ namespace Aptekopol.DAL.Repo
         #region Queries
         private const string GET_ALL_CLIENTS = "SELECT * FROM `clients`";
         private const string INSERT_INTO_CLIENTS = "INSERT INTO `clients`(`Login`, `Firstname`, `Surname`, `Is_company`, `Name`, " +
-            "`NIP`, `City`, `Address`, `Phone`, `Email`, `Password`, `Password_last_change`,) VALUES ";
+            "`NIP`, `City`, `Address`, `Phone`, `Email`, `Password`, `Password_last_change`) VALUES ";
         #endregion
 
         #region CRUD
@@ -84,16 +84,16 @@ namespace Aptekopol.DAL.Repo
                     $"`Login`='{client.Login}'," +
                     $"`Firstname`='{client.Firstname}'," +
                     $"`Surname`='{client.Surname}'," +
-                    $"`Is_company`='{client.IsCompany}'," +
-                    $"`Name`='{client.Name}'," +
-                    $"`NIP`='{client.NIP}'" +
-                    $"`City`='{client.City}'," +
-                    $"`Address`='{client.Address}'," +
-                    $"`Phone`='{client.Phone}'," +
-                    $"`Email`='{client.Email}'," +
-                    $"`Password`='{client.Password}'" +
-                    $"`Password_last_change`='{client.PasswordLastChange}'," +
-                    $" WHERE ID LIKE {clientID}";
+                    $"`Is_company`={(client.IsCompany ? 1 : 0)}," +
+                    $"`Name`='{client.Name ?? (object)DBNull.Value}'," +
+                    $"`NIP`='{client.NIP ?? (object)DBNull.Value}'," +
+                    $"`City`='{client.City ?? (object)DBNull.Value}'," +
+                    $"`Address`='{client.Address ?? (object)DBNull.Value}'," +
+                    $"`Phone`='{client.Phone ?? (object)DBNull.Value}'," +
+                    $"`Email`='{client.Email ?? (object)DBNull.Value}'," +
+                    $"`Password`='{client.Password}'," +
+                    $"`Password_last_change`='{client.PasswordLastChange.ToString("yyyy/MM/dd HH:mm:ss")}'" +
+                    $" WHERE `ID` LIKE {clientID}";
 
                 MySqlCommand command = new MySqlCommand(UPDATE_CLIENT, connection);
                 connection.Open();

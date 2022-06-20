@@ -267,6 +267,12 @@ namespace Aptekopol.ViewModel
                     add = new RelayCommand(
                         arg =>
                         {
+                            if(Firstname == null || Surname == null || City == null || Address == null || Phone == null || Email == null || PESEL == null)
+                            {
+                                System.Windows.MessageBox.Show("Proszę wypełnić wszystskie Pola!");
+                                return;
+                            }
+                                
                             var worker = new Worker(Firstname, Surname, City, Address, Phone, Email, PESEL);
 
                             if (model.AddWorker(worker))

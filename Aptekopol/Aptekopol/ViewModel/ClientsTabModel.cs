@@ -313,9 +313,28 @@ namespace Aptekopol.ViewModel
                                 AddStatus = false;
                                 EditStatus = true;
                                 DelStatus = true;
-                            }
+                            } 
                             else
-                                ClearForm();
+                            {
+                                Login = "";
+                                Firstname = "";
+                                Surname = "";
+                                Is_company = false;
+                                Name = "";
+                                NIP = "";
+                                City = "";
+                                Address = "";
+                                Phone = "";
+                                Email = "";
+                                Password = "";
+                                Password_last_change = dataNow;
+
+                                CurrentOrdersView = new ObservableCollection<OrderView>();
+
+                                AddStatus = true;
+                                EditStatus = false;
+                                DelStatus = false;
+                            }
                         },
                         arg => true
                     );
@@ -335,9 +354,27 @@ namespace Aptekopol.ViewModel
                     add = new RelayCommand(
                         arg =>
                         {
-                            var shop = new Client(Login, Firstname, Surname, Is_company, Name, NIP, City, Address, Phone, Email, Password, Password_last_change);
+                            if (Login == null || Firstname == null || Surname == null || Password == null)
+                            {
+                                System.Windows.MessageBox.Show("Proszę sprawdzić czy pole login, imię, nazwisko oraz hasło zostały wypełnione!");
+                                return;
+                            }
 
-                            if (model.AddClient(shop))
+                            if ((Name != null && NIP == null) || (Name == null && NIP != null))
+                            {
+                                System.Windows.MessageBox.Show("Jeśli chcesz dodać firmę proszę uzupełnić obydwa pola! NIP oraz Nazwę firmy");
+                                return;
+                            }
+                            else if (Name != null && NIP != null)
+                                Is_company = true;
+                            else
+                                Is_company = false;
+
+                            Password_last_change = DateTime.Now;
+
+                            var client = new Client(Login, Firstname, Surname, Is_company, Name, NIP, City, Address, Phone, Email, Password, Password_last_change);
+
+                            if (model.AddClient(client))
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie dodano nowego klienta do Bazy Danych!");
@@ -348,15 +385,7 @@ namespace Aptekopol.ViewModel
                             Login != "" &&
                             Firstname != "" &&
                             Surname != "" &&
-                            Is_company != false &&
-                            Name != "" &&
-                            NIP != "" &&
-                            City != "" &&
-                            Address != "" &&
-                            Phone != "" &&
-                            Email != "" &&
-                            Password != "" &&
-                            Password_last_change != dataNow
+                            Password != ""
                     );
 
                 return add;
@@ -389,15 +418,7 @@ namespace Aptekopol.ViewModel
                             Login != "" &&
                             Firstname != "" &&
                             Surname != "" &&
-                            Is_company != false &&
-                            Name != "" &&
-                            NIP != "" &&
-                            City != "" &&
-                            Address != "" &&
-                            Phone != "" &&
-                            Email != "" &&
-                            Password != "" &&
-                            Password_last_change != dataNow
+                            Password != ""
                    );
                 return edit;
             }
@@ -429,15 +450,7 @@ namespace Aptekopol.ViewModel
                             Login != "" &&
                             Firstname != "" &&
                             Surname != "" &&
-                            Is_company != false &&
-                            Name != "" &&
-                            NIP != "" &&
-                            City != "" &&
-                            Address != "" &&
-                            Phone != "" &&
-                            Email != "" &&
-                            Password != "" &&
-                            Password_last_change != dataNow
+                            Password != ""
                     );
 
                 return del;
