@@ -305,6 +305,11 @@ namespace Aptekopol.ViewModel
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie edytowano pracownika w Bazie Danych!");
                             }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się edytować pracownika z Bazy Danych, ponieważ ma istniejące dowiązania.");
+                            }
                         },
                         arg =>
                             Firstname != "" &&
@@ -334,6 +339,11 @@ namespace Aptekopol.ViewModel
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie usunięto pracownika do Bazy Danych!");
+                            }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się usunąć pracownika z Bazy Danych, ponieważ ma istniejące dowiązania.");
                             }
                         },
                         arg =>

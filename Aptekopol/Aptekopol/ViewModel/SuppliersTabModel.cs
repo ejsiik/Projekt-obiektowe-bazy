@@ -336,6 +336,11 @@ namespace Aptekopol.ViewModel
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie edytowano dostawcę w Bazie Danych!");
                             }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się edytować dostawcy z Bazy Danych, ponieważ ma istniejące dowiązania.");
+                            }
                         },
                         arg =>
                             Name != "" &&
@@ -365,6 +370,11 @@ namespace Aptekopol.ViewModel
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie usunięto dostawcę z Bazy Danych!");
+                            }
+                            else
+                            {
+                                ClearForm();
+                                System.Windows.MessageBox.Show("Nie udało się usunąć dostawcy z Bazy Danych, ponieważ ma istniejące dowiązania.");
                             }
                         },
                         arg =>

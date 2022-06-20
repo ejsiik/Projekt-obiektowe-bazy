@@ -76,17 +76,20 @@ namespace Aptekopol.DAL.Repo
         public static bool AddShop(Shop shop)
         {
             bool status = false;
-
-            using (var connection = DBConnection.Instance.Connection)
+            try
             {
-                MySqlCommand command = new MySqlCommand($"{INSERT_INTO_SHOPS} {shop.ToInsert()}", connection);
-                connection.Open();
+                using (var connection = DBConnection.Instance.Connection)
+                {
+                    MySqlCommand command = new MySqlCommand($"{INSERT_INTO_SHOPS} {shop.ToInsert()}", connection);
+                    connection.Open();
 
-                var id = command.ExecuteNonQuery();
-                status = true;
-                shop.ID = (sbyte)command.LastInsertedId;
-                connection.Close();
+                    var id = command.ExecuteNonQuery();
+                    status = true;
+                    shop.ID = (sbyte)command.LastInsertedId;
+                    connection.Close();
+                }
             }
+            catch { System.Windows.MessageBox.Show("Błąd"); }
 
             return status;
         }
@@ -108,8 +111,15 @@ namespace Aptekopol.DAL.Repo
                 MySqlCommand command = new MySqlCommand(UPDATE_SHOP, connection);
                 connection.Open();
 
-                var n = command.ExecuteNonQuery();
-                if (n == 1) status = true;
+                try
+                {
+                    var n = command.ExecuteNonQuery();
+                    if (n == 1) status = true;
+                }
+                catch
+                {
+                    status = false;
+                }
 
                 connection.Close();
             }

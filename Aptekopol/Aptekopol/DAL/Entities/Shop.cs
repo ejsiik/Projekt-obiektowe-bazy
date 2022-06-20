@@ -35,11 +35,15 @@ namespace Aptekopol.DAL.Entities
         // Stworzenie obiektu na podstawie podanych danych z ID NULL
         public Shop(string city, string address, string phone, string email)
         {
+            try 
+            {
             ID = null;
             City = city.Trim();
             Address = address.Trim();
             Phone = phone.Trim();
-            Email = email.Trim();
+            Email = email.Trim(); 
+            }
+            catch { System.Windows.MessageBox.Show("Błąd"); }
         }
 
         public Shop(Shop shop)
