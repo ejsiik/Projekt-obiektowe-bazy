@@ -9,40 +9,10 @@
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Client">
     <Position X="42.75" Y="26.5" Width="2" />
-    <AssociationLine Name="Clients" Type="Aptekopol.DAL.Repo.Clients">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="17.456" Y="6.726" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="ClientsTabModel" Type="Aptekopol.ViewModel.ClientsTabModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="43.75" Y="26.5" />
-        <Point X="43.75" Y="23.271" />
-        <Point X="41.74" Y="23.271" Type="JumpStart" />
-        <Point X="41.573" Y="23.271" Type="JumpEnd" />
-        <Point X="40.896" Y="23.271" Type="JumpStart" />
-        <Point X="40.729" Y="23.271" Type="JumpEnd" />
-        <Point X="38.208" Y="23.271" Type="JumpStart" />
-        <Point X="38.042" Y="23.271" Type="JumpEnd" />
-        <Point X="37.083" Y="23.271" Type="JumpStart" />
-        <Point X="36.917" Y="23.271" Type="JumpEnd" />
-        <Point X="35.458" Y="23.271" Type="JumpStart" />
-        <Point X="35.292" Y="23.271" Type="JumpEnd" />
-        <Point X="32.188" Y="23.271" />
-        <Point X="32.188" Y="22.386" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="5.881" Y="2.462" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAgAYIgCAAAAQABAAAAIACAAAQIAgIAAI=</HashCode>
+      <HashCode>AAAAAEAAACAAgAYIgAAAAAQABAAAAIACAAAQIAAIAAI=</HashCode>
       <FileName>DAL\Entities\Client.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Clients" />
-      <Property Name="ClientsTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Contract">
     <Position X="24.75" Y="31.75" Width="2.25" />
@@ -53,268 +23,59 @@
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Delivery">
     <Position X="21.75" Y="26.5" Width="2.25" />
-    <AssociationLine Name="Deliveries" Type="Aptekopol.DAL.Repo.Deliveries">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-3.791" Y="6.774" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAQAAgAQBkAAAAACAAAAAAIEAEAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAQAAgAQBgAAAAACAAAAAAIEAEAAAAAAAAAA=</HashCode>
       <FileName>DAL\Entities\Delivery.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Deliveries" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Order">
     <Position X="28.25" Y="26.5" Width="2" />
-    <AssociationLine Name="Orders" Type="Aptekopol.DAL.Repo.Orders">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="2.722" Y="6.887" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="OrdersTabModel" Type="Aptekopol.ViewModel.OrdersTabModel" ManuallyRouted="true">
-      <Path>
-        <Point X="29.25" Y="26.5" />
-        <Point X="29.25" Y="23.884" />
-        <Point X="32.167" Y="23.884" Type="JumpStart" />
-        <Point X="32.333" Y="23.884" Type="JumpEnd" />
-        <Point X="35.292" Y="23.884" Type="JumpStart" />
-        <Point X="35.458" Y="23.884" Type="JumpEnd" />
-        <Point X="37" Y="23.884" />
-        <Point X="37" Y="11.247" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="10.508" Y="13.36" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEEAAAAgAAAAAAQAhAgAEBAAQAAEAIAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AEAAAAAgAAAAAAQAhAgAEBAAAAAEAIAAAAAAgAAAAAA=</HashCode>
       <FileName>DAL\Entities\Order.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Orders" />
-      <Property Name="OrdersTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.OrderView">
     <Position X="51" Y="26.5" Width="1.5" />
-    <AssociationLine Name="OrdersView" Type="Aptekopol.DAL.Views.OrdersView">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="25.272" Y="6.284" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="ClientsTabModel" Type="Aptekopol.ViewModel.ClientsTabModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="51.75" Y="26.5" />
-        <Point X="51.75" Y="23.095" />
-        <Point X="50.365" Y="23.095" Type="JumpStart" />
-        <Point X="50.198" Y="23.095" Type="JumpEnd" />
-        <Point X="41.74" Y="23.095" Type="JumpStart" />
-        <Point X="41.573" Y="23.095" Type="JumpEnd" />
-        <Point X="40.896" Y="23.095" Type="JumpStart" />
-        <Point X="40.729" Y="23.095" Type="JumpEnd" />
-        <Point X="38.208" Y="23.095" Type="JumpStart" />
-        <Point X="38.042" Y="23.095" Type="JumpEnd" />
-        <Point X="37.083" Y="23.095" Type="JumpStart" />
-        <Point X="36.917" Y="23.095" Type="JumpEnd" />
-        <Point X="35.458" Y="23.095" Type="JumpStart" />
-        <Point X="35.292" Y="23.095" Type="JumpEnd" />
-        <Point X="33.062" Y="23.095" />
-        <Point X="33.062" Y="22.386" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="6.404" Y="2.45" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>KAAAABAAAAAAAAAAEAAAAAAAAACARAAAAAABgAgIAAA=</HashCode>
+      <HashCode>KAAAABAAAAAAAAAAEAAAAAAAAACAQAAAAAABgAAIAAA=</HashCode>
       <FileName>DAL\Entities\OrderView.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="OrdersView" />
-      <Property Name="ClientsTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Product">
     <Position X="40" Y="26.5" Width="2" />
-    <AssociationLine Name="Products" Type="Aptekopol.DAL.Repo.Products">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="14.873" Y="6.697" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="ProductsTabModel" Type="Aptekopol.ViewModel.ProductsTabModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="40.813" Y="26.5" />
-        <Point X="40.813" Y="22.94" />
-        <Point X="39.875" Y="22.94" />
-        <Point X="39.875" Y="19.694" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="13.427" Y="5.128" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAYAggAQAgAAAAAQAAAAAAIAAQAAAAAAACAQ=</HashCode>
+      <HashCode>AAAAAAAAAYAggAQAgAAAAAQAAAAAAIAAAAAAAAAACAA=</HashCode>
       <FileName>DAL\Entities\Product.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Products" />
-      <Property Name="ProductsTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.ProductSupplier">
     <Position X="49" Y="26.5" Width="1.5" />
-    <AssociationLine Name="ProductsSuppliers" Type="Aptekopol.DAL.Views.ProductsSuppliers">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="23.102" Y="6.231" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="SuppliersTabModel" Type="Aptekopol.ViewModel.SuppliersTabModel" ManuallyRouted="true">
-      <Path>
-        <Point X="49.75" Y="26.5" />
-        <Point X="49.75" Y="23.457" />
-        <Point X="43.833" Y="23.457" Type="JumpStart" />
-        <Point X="43.667" Y="23.457" Type="JumpEnd" />
-        <Point X="41.74" Y="23.457" Type="JumpStart" />
-        <Point X="41.573" Y="23.457" Type="JumpEnd" />
-        <Point X="40.896" Y="23.457" Type="JumpStart" />
-        <Point X="40.729" Y="23.457" Type="JumpEnd" />
-        <Point X="38.208" Y="23.457" Type="JumpStart" />
-        <Point X="38.042" Y="23.457" Type="JumpEnd" />
-        <Point X="37.083" Y="23.457" Type="JumpStart" />
-        <Point X="36.917" Y="23.457" Type="JumpEnd" />
-        <Point X="35.458" Y="23.457" Type="JumpStart" />
-        <Point X="35.292" Y="23.457" Type="JumpEnd" />
-        <Point X="30.708" Y="23.457" />
-        <Point X="30.708" Y="20.463" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="3.877" Y="4.326" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="ProductsTabModel" Type="Aptekopol.ViewModel.ProductsTabModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="50.281" Y="26.5" />
-        <Point X="50.281" Y="22.707" />
-        <Point X="41.74" Y="22.707" Type="JumpStart" />
-        <Point X="41.573" Y="22.707" Type="JumpEnd" />
-        <Point X="39.958" Y="22.707" Type="JumpStart" />
-        <Point X="39.792" Y="22.707" Type="JumpEnd" />
-        <Point X="39.125" Y="22.707" />
-        <Point X="39.125" Y="19.694" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="12.345" Y="4.974" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAQAAAAAAIAAAAACAIAAAAAAAQIAAAAAIAAA=</HashCode>
+      <HashCode>AAIAAAAAAQAAAAAAAAAAAACAAAAAAAAAAIAAAAAIAAA=</HashCode>
       <FileName>DAL\Entities\ProductSupplier.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ProductsSuppliers" />
-      <Property Name="SuppliersTabModel" />
-      <Property Name="ProductsTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Shop">
     <Position X="31.25" Y="26.5" Width="2" />
-    <AssociationLine Name="Shops" Type="Aptekopol.DAL.Repo.Shops">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="5.941" Y="6.909" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="ShopsTabModel" Type="Aptekopol.ViewModel.ShopsTabModel" ManuallyRouted="true">
-      <Path>
-        <Point X="32.25" Y="26.5" />
-        <Point X="32.25" Y="23.689" />
-        <Point X="35.292" Y="23.689" Type="JumpStart" />
-        <Point X="35.458" Y="23.689" Type="JumpEnd" />
-        <Point X="36.917" Y="23.689" Type="JumpStart" />
-        <Point X="37.083" Y="23.689" Type="JumpEnd" />
-        <Point X="38.042" Y="23.689" Type="JumpStart" />
-        <Point X="38.208" Y="23.689" Type="JumpEnd" />
-        <Point X="40.729" Y="23.689" Type="JumpStart" />
-        <Point X="40.896" Y="23.689" Type="JumpEnd" />
-        <Point X="41.656" Y="23.689" />
-        <Point X="41.656" Y="18.732" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="15.04" Y="6.073" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAgAQIkAAAEAAAAAAAAIACAAAAIAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAgAQIgAAAAAAAAAAAAIACAAAAIAAAAAA=</HashCode>
       <FileName>DAL\Entities\Shop.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Shops" />
-      <Property Name="ShopsTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Supplier">
     <Position X="34.25" Y="26.5" Width="2.25" />
-    <AssociationLine Name="SuppliersTabModel" Type="Aptekopol.ViewModel.SuppliersTabModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="35.375" Y="26.5" />
-        <Point X="35.375" Y="22.925" />
-        <Point X="33.146" Y="22.925" Type="JumpStart" />
-        <Point X="32.979" Y="22.925" Type="JumpEnd" />
-        <Point X="32.271" Y="22.925" Type="JumpStart" />
-        <Point X="32.104" Y="22.925" Type="JumpEnd" />
-        <Point X="30.792" Y="22.925" Type="JumpStart" />
-        <Point X="30.625" Y="22.925" Type="JumpEnd" />
-        <Point X="29.125" Y="22.925" />
-        <Point X="29.125" Y="19.875" />
-        <Point X="29.5" Y="19.875" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="3.134" Y="-5.066" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="Suppliers" Type="Aptekopol.DAL.Repo.Suppliers">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="9.019" Y="6.526" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAKAAgIQIoAAAAAQAAAAAAIACAAAAIAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAKAAgAQIgAAAAAQAAAAAAIACAAAAIAAAAAI=</HashCode>
       <FileName>DAL\Entities\Supplier.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="SuppliersTabModel" />
-      <Property Name="Suppliers" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Entities.Worker">
     <Position X="37.25" Y="26.5" Width="2" />
-    <AssociationLine Name="Workers" Type="Aptekopol.DAL.Repo.Workers">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="11.944" Y="6.761" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="WorkersTabModel" Type="Aptekopol.ViewModel.WorkersTabModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="38.125" Y="26.5" />
-        <Point X="38.125" Y="22.8" />
-        <Point X="37.083" Y="22.8" Type="JumpStart" />
-        <Point X="36.917" Y="22.8" Type="JumpEnd" />
-        <Point X="34.75" Y="22.8" />
-        <Point X="34.75" Y="19.886" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="8.146" Y="5.044" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAgAQIgAAAAAAABAAAEKACAAAgIAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAACAAgAQIgAAAAAAABAAAEIACAAAAIAAAAAA=</HashCode>
       <FileName>DAL\Entities\Worker.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Workers" />
-      <Property Name="WorkersTabModel" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Repo.Clients">
     <Position X="42.75" Y="31.75" Width="2" />
@@ -325,18 +86,10 @@
   </Class>
   <Class Name="Aptekopol.DAL.Repo.Contracts">
     <Position X="25" Y="26.5" Width="2" />
-    <AssociationLine Name="Contract" Type="Aptekopol.DAL.Entities.Contract">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.799" Y="6.805" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAIABAEAAAAAAAAAAAQAAAAAAAASACAIAAIAAQAAAA=</HashCode>
+      <HashCode>AAAIABAEAAAAAAAAAAAQAAAAAAAASACAIAAAAAQAAAA=</HashCode>
       <FileName>DAL\Repo\Contracts.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Contract" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.DAL.Repo.Deliveries">
     <Position X="21.75" Y="31.75" Width="2.25" />
@@ -396,44 +149,17 @@
   </Class>
   <Class Name="Aptekopol.Model.Model">
     <Position X="45.75" Y="10.25" Width="2.25" />
-    <AssociationLine Name="MainViewModel" Type="Aptekopol.ViewModel.MainViewModel" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="46.875" Y="10.25" />
-        <Point X="46.875" Y="8.625" />
-        <Point X="40" Y="8.625" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-14.51" Y="-16.519" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="DBConnection" Type="Aptekopol.DAL.DBConnection">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="20.327" Y="-6.37" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAiAAAAkAEQIABIAAAARQCAAEAAAAAAAMIECECDQEhg=</HashCode>
+      <HashCode>AAiAAAAkAEQIABIAAAARQAAAEAAAAAAAMIECECDQEhg=</HashCode>
       <FileName>Model\Model.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MainViewModel" />
-      <Property Name="DBConnection" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Aptekopol.ViewModel.BaseClass.ViewModelBase">
     <Position X="35" Y="7.75" Width="1.75" />
-    <AssociationLine Name="MainViewModel" Type="Aptekopol.ViewModel.MainViewModel">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="11.834" Y="-16.427" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAACAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\BaseClasses\ViewModelBase.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MainViewModel" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Aptekopol.ViewModel.ClientsTabModel">
@@ -483,6 +209,49 @@
     <TypeIdentifier>
       <HashCode>EGIwAEAIICBQgACoEAAEiAAIBAIIECAiCAAgIhBKAgA=</HashCode>
       <FileName>ViewModel\WorkersTabModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aptekopol.Properties.Resources" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aptekopol.Properties.Settings" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAABAAAAAIAAAAAABAAgAAAAAAAAAAQI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aptekopol.View.LoginWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aptekopol.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aptekopol.ViewModel.BaseClass.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\BaseClasses\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Aptekopol.ViewModel.LoginViewModel" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>ViewModel\LoginViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
