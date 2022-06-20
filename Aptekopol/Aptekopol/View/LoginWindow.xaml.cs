@@ -23,5 +23,29 @@ namespace Aptekopol.View
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Client.IsChecked == true)
+            {
+                Client client = new Client();
+                client.Show();
+            }
+            else if (Manager.IsChecked == true)
+            {
+                Manager manager = new Manager();
+                manager.Show();
+            }
+            else if (Worker.IsChecked == true)
+            {
+                Worker worker = new Worker();
+                worker.Show();
+            }
+            else if (Regional_manager.IsChecked == true)
+            {
+                MainWindow regional_manager = new MainWindow();
+                regional_manager.Show();
+            }
+        }
     }
 }

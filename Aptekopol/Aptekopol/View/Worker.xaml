@@ -1,0 +1,461 @@
+﻿<Window x:Class="Aptekopol.View.Worker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:Aptekopol.View"
+        xmlns:vm="clr-namespace:Aptekopol.ViewModel" 
+        mc:Ignorable="d"
+        Title="Worker" Height="450" Width="800">
+    
+    <Window.Resources>
+        <vm:MainViewModel x:Key="mainVM"/>
+    </Window.Resources>
+    
+    <Grid>
+        <TabControl>
+        <TabItem x:Name="ProductsList" Header="Zarządzanie produktami">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <!-- LISTA Produktów  -->
+                <DataGrid x:Name="products"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ProductsTabVM.Products}"
+                              SelectedItem="{Binding ProductsTabVM.CurrentProduct}" 
+                              SelectedIndex="{Binding ProductsTabVM.SelectedProductIndex, Mode=TwoWay}" >
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                        <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" />
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction 
+                                    Command="{Binding ProductsTabVM.LoadForm}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </DataGrid>
+
+                <!-- EDYCJA/DODAWANIE Produktu -->
+                <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                    <TextBlock Text="Nazwa:"/>
+                    <TextBox x:Name="name_product" Text="{Binding ProductsTabVM.Name_product}"/>
+
+                    <TextBlock Text="Opis:"/>
+                    <TextBox x:Name="description_product"
+                                   TextWrapping="Wrap"
+                                   AcceptsReturn="True"
+                                   VerticalScrollBarVisibility="Visible"
+                                   Text="{Binding ProductsTabVM.Description_product}"/>
+
+                    <TextBlock Text="Cena:"/>
+                    <TextBox x:Name="price_product" Text="{Binding ProductsTabVM.Price_product}"/>
+
+                    <TextBlock Text="Uwagi:"/>
+                    <TextBox x:Name="remarks_product" Text="{Binding ProductsTabVM.Remarks_product}"/>
+
+                    <TextBlock Text="Kategoria:"/>
+                    <TextBox x:Name="category_product" Text="{Binding ProductsTabVM.Category_product}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="button_Add_product" Grid.Column="0" Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Add}"
+                                    IsEnabled="{Binding ProductsTabVM.AddStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Edit_product" Grid.Column="1" Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Edit}"
+                                    IsEnabled="{Binding ProductsTabVM.EditStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Del_product" Grid.Column="2" Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Del}"
+                                    IsEnabled="{Binding ProductsTabVM.DelStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Clear_product" Grid.Column="3" Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding ProductsTabVM.Clear}"
+                             />
+                    </Grid>
+
+                    <!-- LISTA Dostawców  -->
+                    <TextBlock Text="Dostawcy:"
+                                   Margin="0,20,0,0"/>
+                    <DataGrid
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ProductsTabVM.CurrentProductSuppliers}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding DeliveryID}" />
+                            <DataGridTextColumn Header="Nazwa" Binding="{Binding ProductName}" />
+                            <DataGridTextColumn Header="Dostawca" Binding="{Binding SupplierName}" />
+                            <DataGridTextColumn Header="Cena zakupu" Binding="{Binding Price}" />
+                            <DataGridTextColumn Header="Ilość" Binding="{Binding Amount}" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem x:Name="ClientsList" Header="Zarządzanie klientami">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <!-- LISTA Klientów  -->
+                <DataGrid x:Name="clients"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ClientsTabVM.Clients}"
+                              SelectedItem="{Binding ClientsTabVM.CurrentClient}"
+                              SelectedIndex="{Binding ClientsTabVM.SelectedClientIndex, Mode=TwoWay}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                        <DataGridTextColumn Header="Nazwa użytkownika" Binding="{Binding Login}" />
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction 
+                                    Command="{Binding ClientsTabVM.LoadForm}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </DataGrid>
+
+                <!-- EDYCJA/DODAWANIE Produktu -->
+                <StackPanel Grid.Column="2"
+                                Margin="5,5,5,5">
+
+                    <TextBlock Text="Nazwa użytkownika:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Login }"/>
+
+                    <TextBlock Text="Imię:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Firstname }"/>
+
+                    <TextBlock Text="Nazwisko:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Surname }"/>
+
+                    <TextBlock Text="Nazwa Firmy:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Name }"/>
+
+                    <TextBlock Text="NIP:"/>
+                    <TextBox Text="{Binding ClientsTabVM.NIP }"/>
+
+                    <TextBlock Text="Miasto:"/>
+                    <TextBox Text="{Binding ClientsTabVM.City }"/>
+
+                    <TextBlock Text="Adres:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Address }"/>
+
+                    <TextBlock Text="Numer telefonu:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Phone }"/>
+
+                    <TextBlock Text="E-mail:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Email }"/>
+
+                    <TextBlock Text="Hasło:"/>
+                    <TextBox Text="{Binding ClientsTabVM.Password }"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="button_Add_client" Grid.Column="0" Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Add}"
+                                    IsEnabled="{Binding ClientsTabVM.AddStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Edit_client" Grid.Column="1" Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Edit}"
+                                    IsEnabled="{Binding ClientsTabVM.EditStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Del_client" Grid.Column="2" Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Del}"
+                                    IsEnabled="{Binding ClientsTabVM.DelStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Clear_client" Grid.Column="3" Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding ClientsTabVM.Clear}"
+                             />
+                    </Grid>
+
+                    <DataGrid
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding ClientsTabVM.CurrentOrdersView}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding OrderID}" />
+                            <DataGridTextColumn Header="Login Klienta" Binding="{Binding ClientLogin}" />
+                            <DataGridTextColumn Header="Data zamówienia" Binding="{Binding OrderDate}" />
+                            <DataGridTextColumn Header="nazwa Produktu" Binding="{Binding ProductName}" />
+                            <DataGridTextColumn Header="Ilość" Binding="{Binding Quantity}" />
+                            <DataGridTextColumn Header="Cena jd" Binding="{Binding UnitPrice}" />
+                            <DataGridTextColumn Header="Cena" Binding="{Binding TotalPrice}" />
+                            <DataGridTextColumn Header="Sklep" Binding="{Binding Shop}" />
+                            <DataGridTextColumn Header="Pracownik" Binding="{Binding AssignedTo}" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem x:Name="SuppliersList" Header="Zarządzanie dostawcami">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- LISTA Dostawców  -->
+                <DataGrid Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding SuppliersTabVM.Suppliers}"
+                              SelectedItem="{Binding SuppliersTabVM.CurrentSupplier}" 
+                              SelectedIndex="{Binding SuppliersTabVM.SelectedSupplierIndex, Mode=TwoWay}" >
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                        <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" />
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction 
+                                    Command="{Binding SuppliersTabVM.LoadForm}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </DataGrid>
+
+                <!-- EDYCJA/DODAWANIE Dostawcy -->
+                <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                    <TextBlock Text="Nazwa:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.Name}"/>
+
+                    <TextBlock Text="Miasto:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.City}"/>
+
+                    <TextBlock Text="Adres:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.Address}"/>
+
+                    <TextBlock Text="Numer telefonu:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.Phone}"/>
+
+                    <TextBlock Text="E-mail:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.Email}"/>
+
+                    <TextBlock Text="NIP:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.NIP}"/>
+
+                    <TextBlock Text="Adnotacje:"/>
+                    <TextBox Text="{Binding SuppliersTabVM.Remarks}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="button_Add_sup" 
+                                    Grid.Column="0" 
+                                    Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Add}"
+                                    IsEnabled="{Binding SuppliersTabVM.AddStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Edit_sup" 
+                                    Grid.Column="1" 
+                                    Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Edit}"
+                                    IsEnabled="{Binding SuppliersTabVM.EditStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Del_sup" 
+                                    Grid.Column="2" 
+                                    Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Del}"
+                                    IsEnabled="{Binding SuppliersTabVM.DelStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Clear_sup" 
+                                    Grid.Column="3" 
+                                    Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding SuppliersTabVM.Clear}"
+                             />
+                    </Grid>
+
+                    <DataGrid
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding SuppliersTabVM.CurrentSupplierProducts}">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding DeliveryID}" />
+                            <DataGridTextColumn Header="Nazwa" Binding="{Binding ProductName}" />
+                            <DataGridTextColumn Header="Dostawca" Binding="{Binding SupplierName}" />
+                            <DataGridTextColumn Header="Cena zakupu" Binding="{Binding Price}" />
+                            <DataGridTextColumn Header="Ilość" Binding="{Binding Amount}" />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem x:Name="OrdersList" Header="Zarządzanie zamówieniami" Visibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <!-- LISTA zamówień  -->
+                <DataGrid x:Name="orders"
+                              Grid.Column="0"  
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              GridLinesVisibility="None"
+                              AlternatingRowBackground="Lavender"
+                              ItemsSource="{Binding OrdersTabVM.Orders}"
+                              SelectedItem="{Binding OrdersTabVM.CurrentOrder}" 
+                              SelectedIndex="{Binding OrdersTabVM.SelectedOrderIndex, Mode=TwoWay}" >
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Order_ID}" />
+                        <DataGridTextColumn Header="Product ID" Binding="{Binding Product_ID}" />
+                        <DataGridTextColumn Header="Ilość" Binding="{Binding Quantity}" />
+                    </DataGrid.Columns>
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction 
+                                    Command="{Binding OrdersTabVM.LoadForm}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </DataGrid>
+
+                <!-- EDYCJA/DODAWANIE Zamówienia -->
+                <StackPanel Grid.Column="2"
+                                Margin="5">
+
+                    <TextBlock Text="ID zamówienia:"/>
+                    <TextBox x:Name="orderid"  Text="{Binding OrdersTabVM.Order_ID}"/>
+
+                    <TextBlock Text="ID klienta:"/>
+                    <TextBox x:Name="clientid" Text="{Binding OrdersTabVM.Client_ID}"/>
+
+                    <TextBlock Text="ID sklepu:"/>
+                    <TextBox x:Name="shopid" Text="{Binding OrdersTabVM.Shop_ID}"/>
+
+                    <TextBlock Text="ID pracownika:"/>
+                    <TextBox x:Name="workerid" Text="{Binding OrdersTabVM.Worker_ID}"/>
+
+                    <TextBlock Text="ID produktu:"/>
+                    <TextBox x:Name="productid" Text="{Binding OrdersTabVM.Order_ID}"/>
+
+                    <TextBlock Text="Ilość:"/>
+                    <TextBox x:Name="quantity" Text="{Binding OrdersTabVM.Quantity}"/>
+
+                    <TextBlock Text="Data zamówienia:"/>
+                    <TextBox x:Name="order_date" Text="{Binding OrdersTabVM.Order_date}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="button_Add_order" 
+                                    Grid.Column="0" 
+                                    Content="Dodaj"
+                                    Margin="5"
+                                    Command="{Binding OrdersTabVM.Add}"
+                                    IsEnabled="{Binding OrdersTabVM.AddStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Edit_order" 
+                                    Grid.Column="1" 
+                                    Content="Edytuj" 
+                                    Margin="5"
+                                    Command="{Binding OrdersTabVM.Edit}"
+                                    IsEnabled="{Binding OrdersTabVM.EditStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Del_order" 
+                                    Grid.Column="2" 
+                                    Content="Usuń"
+                                    Margin="5"
+                                    Command="{Binding OrdersTabVM.Del}"
+                                    IsEnabled="{Binding OrdersTabVM.DelStatus, Mode=OneWay}"
+                             />
+                        <Button x:Name="button_Clear_order" 
+                                    Grid.Column="3" 
+                                    Content="Wyczyść"
+                                    Margin="5"
+                                    Command="{Binding OrdersTabVM.Clear}"
+                             />
+                    </Grid>
+
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
