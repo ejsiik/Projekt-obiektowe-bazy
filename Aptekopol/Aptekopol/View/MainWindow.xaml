@@ -545,7 +545,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="OrdersList" Header="Zarządzanie zamówieniami">
+            <TabItem x:Name="OrdersList" Header="Zarządzanie zamówieniami" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*"/>
