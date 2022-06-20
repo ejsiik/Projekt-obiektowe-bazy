@@ -12,8 +12,8 @@
     <Window.Resources>
         <vm:MainViewModel x:Key="mainVM"/>
     </Window.Resources>
-    
-    <Grid>
+
+    <Grid DataContext="{StaticResource mainVM}">
         <TabControl>
         <TabItem x:Name="ProductsList" Header="Zarządzanie produktami">
             <Grid>
