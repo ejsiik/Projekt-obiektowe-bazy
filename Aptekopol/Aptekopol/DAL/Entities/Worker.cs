@@ -45,7 +45,7 @@ namespace Aptekopol.DAL.Entities
         public Worker(string firstname, string surname, string city, string address, string phone, string email, string pesel)
         {
             ID = null;
-            Firstname = firstname.Trim();
+            Firstname = firstname != null ? firstname.Trim() : "";
             Surname = surname.Trim();
             City = city.Trim();
             Address = address.Trim();

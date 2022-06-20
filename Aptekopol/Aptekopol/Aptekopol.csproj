@@ -132,7 +132,6 @@
     <Compile Include="DAL\Entities\Worker.cs" />
     <Compile Include="DAL\Repo\Clients.cs" />
     <Compile Include="DAL\Repo\Deliveries.cs" />
-    <Compile Include="DAL\Repo\Orders.cs" />
     <Compile Include="DAL\Repo\Products.cs" />
     <Compile Include="DAL\Repo\Contracts.cs" />
     <Compile Include="DAL\Repo\Shops.cs" />
@@ -145,7 +144,6 @@
     <Compile Include="ViewModel\BaseClasses\ViewModelBase.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\OrdersTabModel.cs" />
     <Compile Include="ViewModel\ProductTabModel.cs" />
     <Compile Include="ViewModel\ClientsTabModel.cs" />
     <Compile Include="ViewModel\ShopsTabModel.cs" />
