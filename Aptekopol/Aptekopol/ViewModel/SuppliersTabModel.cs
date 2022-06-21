@@ -298,6 +298,12 @@ namespace Aptekopol.ViewModel
                     add = new RelayCommand(
                         arg =>
                         {
+                            if (Name == null || City == null || Address == null || Phone == null || Email == null || NIP == null || Remarks == null)
+                            {
+                                System.Windows.MessageBox.Show("Proszę wypełnić wszystskie Pola!");
+                                return;
+                            }
+
                             var supplier = new Supplier(Name, City, Address, Phone, Email, NIP, Remarks);
 
                             if (model.AddSupplier(supplier))

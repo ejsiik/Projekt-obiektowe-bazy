@@ -312,9 +312,10 @@
             <TabItem x:Name="ClientsList" Header="Zarządzanie klientami">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="0.1*"/>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="194*"/>
+                        <ColumnDefinition Width="39*"/>
+                        <ColumnDefinition Width="334*"/>
+                        <ColumnDefinition Width="827*"/>
                     </Grid.ColumnDefinitions>
                     <!-- LISTA Klientów  -->
                     <DataGrid x:Name="clients"
@@ -325,7 +326,7 @@
                               AlternatingRowBackground="Lavender"
                               ItemsSource="{Binding ClientsTabVM.Clients}"
                               SelectedItem="{Binding ClientsTabVM.CurrentClient}"
-                              SelectedIndex="{Binding ClientsTabVM.SelectedClientIndex, Mode=TwoWay}">
+                              SelectedIndex="{Binding ClientsTabVM.SelectedClientIndex, Mode=TwoWay}" Grid.ColumnSpan="2" Margin="0,0,38,0">
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
@@ -343,7 +344,7 @@
 
                     <!-- EDYCJA/DODAWANIE Produktu -->
                     <StackPanel Grid.Column="2"
-                                Margin="5,5,5,5">
+                                Margin="5,5,5,5" Grid.ColumnSpan="2">
 
                         <TextBlock Text="Nazwa użytkownika:"/>
                         <TextBox Text="{Binding ClientsTabVM.Login }"/>
@@ -437,7 +438,7 @@
                         <ColumnDefinition Width="0.1*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- LISTA Dostawców  -->
                     <DataGrid Grid.Column="0"  
                               IsReadOnly="True"

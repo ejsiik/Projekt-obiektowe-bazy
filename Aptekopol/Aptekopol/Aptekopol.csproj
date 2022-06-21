@@ -107,23 +107,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Client.xaml.cs">
-      <DependentUpon>Client.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Manager.xaml.cs">
-      <DependentUpon>Manager.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Worker.xaml.cs">
-      <DependentUpon>Worker.xaml</DependentUpon>
-    </Compile>
-    <Page Include="View\Client.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -155,28 +138,16 @@
     <Compile Include="Model\Model.cs" />
     <Compile Include="ViewModel\BaseClasses\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseClasses\ViewModelBase.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductTabModel.cs" />
     <Compile Include="ViewModel\ClientsTabModel.cs" />
     <Compile Include="ViewModel\ShopsTabModel.cs" />
     <Compile Include="ViewModel\SuppliersTabModel.cs" />
     <Compile Include="ViewModel\WorkersTabModel.cs" />
-    <Compile Include="View\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Manager.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Worker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

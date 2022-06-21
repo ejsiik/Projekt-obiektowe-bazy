@@ -228,6 +228,12 @@ namespace Aptekopol.ViewModel
                     add = new RelayCommand(
                         arg =>
                         {
+                            if (City_shop == null || Address_shop == null || Phone_shop == null || Email_shop == null)
+                            {
+                                System.Windows.MessageBox.Show("Proszę wypełnić wszystskie Pola!");
+                                return;
+                            }
+
                             var shop = new Shop(City_shop, Address_shop, Phone_shop, Email_shop);
 
                             if (model.AddShop(shop))

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2022 at 03:48 PM
+-- Generation Time: Jun 20, 2022 at 09:54 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -40,7 +40,7 @@ CREATE TABLE `clients` (
   `Phone` varchar(50) COLLATE utf32_polish_ci DEFAULT NULL,
   `Email` varchar(50) COLLATE utf32_polish_ci DEFAULT NULL,
   `Password` varchar(50) COLLATE utf32_polish_ci NOT NULL,
-  `Password_last_change` datetime DEFAULT NULL
+  `Password_last_change` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_polish_ci;
 
 --
@@ -97,7 +97,7 @@ INSERT INTO `clients` (`ID`, `Login`, `Firstname`, `Surname`, `Is_company`, `Nam
 (47, 'cmaynell1a', 'Cole', 'Maynell', 0, NULL, NULL, 'Jawl al Majma‘', '06 Debs Way', '113-060-468', 'cmaynell1a@ca.gov', 'gGCbECgPmn', '2022-05-25 00:46:21'),
 (48, 'agiblin1b', 'Arte', 'Giblin', 0, NULL, NULL, 'Zhoutou', '7827 Mandrake Pass', NULL, 'agiblin1b@craigslist.org', 'P5clcWaCRjB', '2022-04-29 11:41:16'),
 (49, 'rmccarver1c', 'Roddy', 'McCarver', 0, NULL, NULL, 'Berlin', '85 Thierer Hill', '345-446-522', 'rmccarver1c@techcrunch.com', '0j9K75eM1Wy9', '2021-09-05 14:31:15'),
-(50, 'aeede1d', 'Abelard', 'Eede', 1, 'Shufflebeat', '026-737-86-55', 'Cerkvenjak', '0042 Northfield Crossing', NULL, 'aeede1d@artisteer.com', 'MfBwJzq8TKsB', '2021-06-10 18:32:14');
+(50, 'aeede1d', 'Abelard', 'Eede', 1, 'Shufflebeat', '026-737-86-55', 'Cerkvenjak', '0042 Northfield Crossing', '', 'aeede1d@artisteer.com', 'MfBwJzq8TKsB', '2021-06-10 18:32:14');
 
 -- --------------------------------------------------------
 
@@ -714,7 +714,7 @@ INSERT INTO `workers` (`ID`, `Firstname`, `Surname`, `City`, `Address`, `Phone`,
 (11, 'Baudoin', 'O\'Calleran', 'Memphis', '9564 Sommers Plaza', '678 344 700', 'bocallerana@topsy.com', '74797384497'),
 (12, 'Atlanta', 'Swaddle', 'Burao', '0 Eastlawn Crossing', '256 917 588', 'aswaddleb@telegraph.co.uk', '61039012851'),
 (13, 'Cleopatra', 'Caney', 'Jingzhou', '56 Londonderry Hill', '917 350 351', 'ccaneyc@csmonitor.com', '80940924771'),
-(14, 'Rich', 'Satch', 'Gouqi', '6 Shopko Street', '797 718 150', 'rsatchd@vinaora.com', '57540155883'),
+(14, 'test', 'Satch', 'Gouqi', '6 Shopko Street', '797 718 150', 'rsatchd@vinaora.com', '57540155883'),
 (15, 'Gale', 'Jacson', 'Jianxi', '7 Service Alley', '958 645 508', 'gjacsone@wufoo.com', '60625634329'),
 (16, 'Shaun', 'Whalley', 'Ibarreta', '52 Warbler Parkway', '301 703 755', 'swhalleyf@wired.com', '74505547558'),
 (17, 'Chicky', 'Rittmeier', 'Solna', '61483 Hovde Junction', '172 053 894', 'crittmeierg@soup.io', '24567751622'),
@@ -909,7 +909,7 @@ ALTER TABLE `workers_authentication`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `contracts`
@@ -951,7 +951,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `workers_authentication`

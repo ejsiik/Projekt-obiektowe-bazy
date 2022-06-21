@@ -46,12 +46,12 @@ namespace Aptekopol.DAL.Entities
         {
             ID = null;
             Firstname = firstname != null ? firstname.Trim() : "";
-            Surname = surname.Trim();
-            City = city.Trim();
-            Address = address.Trim();
-            Phone = phone.Trim();
-            Email = email.Trim();
-            PESEL = pesel.Trim();
+            Surname = surname != null ? surname.Trim() : "";
+            City = city != null ? city.Trim() : "";
+            Address = address != null ? address.Trim() : "";
+            Phone = phone != null ? phone.Trim() : "";
+            Email = email != null ? email.Trim() : "";
+            PESEL = pesel != null ? pesel.Trim() : "";
         }
 
         public Worker(Worker worker)

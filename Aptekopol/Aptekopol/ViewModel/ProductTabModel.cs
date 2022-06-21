@@ -291,9 +291,15 @@ namespace Aptekopol.ViewModel
                     add = new RelayCommand(
                         arg =>
                         {
-                            var shop = new Product(Name_product, Description_product, Price_product, Remarks_product, Category_product);
+                            if (Name_product == null || Description_product == null || Price_product == null || Remarks_product == null || Category_product == null)
+                            {
+                                System.Windows.MessageBox.Show("Proszę wypełnić wszystskie Pola!");
+                                return;
+                            }
 
-                            if (model.AddProduct(shop))
+                            var product = new Product(Name_product, Description_product, Price_product, Remarks_product, Category_product);
+
+                            if (model.AddProduct(product))
                             {
                                 ClearForm();
                                 System.Windows.MessageBox.Show("Pomyślnie dodano nowy produkt do Bazy Danych!");
